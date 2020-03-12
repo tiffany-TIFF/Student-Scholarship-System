@@ -12,6 +12,9 @@ body {
     font-family: cursive;
     padding-left: 2%
 }
+a:hover {
+    background-color: blue;
+}
 
 nav {
     text-align: center;
