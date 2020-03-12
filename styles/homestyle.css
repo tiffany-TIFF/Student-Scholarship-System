@@ -4,7 +4,7 @@ body {
     padding-top: 10%;
     color: white;
 }
-
+/* Title */
 #welcome{
     text-align: center;
     opacity: 1;
@@ -19,12 +19,13 @@ nav {
     padding: 0;
     list-style: none;
 }
-
+/* List Items */
 nav li {
     text-align: center;
     display: inline;
 }
 
+/* Elements in list */
 nav a {
     color: white;
     display:inline-block;
