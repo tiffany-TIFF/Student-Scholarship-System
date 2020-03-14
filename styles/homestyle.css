@@ -9,7 +9,7 @@ body {
     text-align: center;
     opacity: 1;
     font-size: 150px;
-    font-family: cursive;
+    font-family: "Times New Roman", Times, serif;
     padding-left: 2%
 }
 a:hover {
