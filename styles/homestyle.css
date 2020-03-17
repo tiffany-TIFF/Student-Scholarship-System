@@ -13,7 +13,7 @@ body {
     padding-left: 2%
 }
 a:hover {
-    background-color: blue;
+    transform: scale(1.05);
 }
 
 nav {
