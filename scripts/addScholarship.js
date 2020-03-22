@@ -12,7 +12,7 @@ function deptArray() {
                 "EVDS", "EVDL", "EVDP", "ENEN", "ENSC", "FILM", "FNCE", "FINA", "FREN",
                 "GEOG", "GLGY", "ENGO", "GOPH", "GERM", "GRST", "GREK", "HSOC", "HTST",
                 "INDL", "INDG", "ISEC", "INNO", "INTR", "INTE", "IPHE", "ITAL", "JPNS",
-                "KNES", "LAND", "LANG", "LLAC", "LAST, LATI", "LWSI", "LAW", "LING",
+                "KNES", "LAND", "LANG", "LLAC", "LAST", "LATI", "LWSI", "LAW", "LING",
                 "MGST", "ENMF", "MRSC", "MKTG", "MATH", "ENME", "MDGE", "MDPH", "MDSC",
                 "MDCN", "MHST", "MUED", "MUSI", "MUPF", "NANS", "NEUR", "NURS", "OPMA",
                 "OBHR", "ENPE", "PHIL", "PHED", "PHYS", "PLAN", "PLBI", "POLI", "PLMA",
