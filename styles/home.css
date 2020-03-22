@@ -1,9 +1,12 @@
+html {
+  font-family: "Roboto", sans-serif;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 1.5;
   margin: 0;
-  background: #edeae5;
+  background: #f6f6f2;
   color: white;
 }
 
@@ -26,13 +29,12 @@ nav li {
 
 /* Elements in list */
 nav a {
-  color: white;
+  color: #6fb3b8;
   display: inline-block;
   padding-left: 20px;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 16px;
-  font-family: monospace;
+  font-size: 14px;
 }
 
 /*Global*/
@@ -44,13 +46,17 @@ nav a {
 
 /*Header*/
 header {
-  background: #35424a;
-  color: #ffffff;
+  background: #f6f6f2;
+  color: #388087;
   padding-top: 30px;
   min-height: 70px;
-  border-bottom: #ffffff 3px solid;
+  font-family: "Montserrat", sans-serif;
 }
-
+/*Header link*/
+header a {
+  color: #388087;
+  text-decoration: none;
+}
 /* Univeristy of Manitoba Logo */
 header #branding {
   float: left;
@@ -61,12 +67,12 @@ header #branding h1 {
 }
 /* Background image */
 #showcase {
-  min-height: 400px;
+  min-height: 450px;
   background: url("./images/showcase.jpg") no-repeat;
   background-position: auto;
-  background-size: contain;
+  background-size: cover;
   text-align: center;
-  color: #ffffff;
+  color: #f6f6f2;
 }
 
 #showcase h1 {
@@ -80,11 +86,11 @@ header #branding h1 {
 }
 
 #boxes {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 #boxes a {
   text-decoration: none;
-  color: #254e58;
+  color: #388087;
 }
 
 #boxes .box {
@@ -100,7 +106,7 @@ header #branding h1 {
 }
 
 #boxes #title {
-  color: #102941;
+  color: #388087;
   text-align: center;
   font-size: 24px;
 }
@@ -108,6 +114,6 @@ footer {
   padding: 20px;
   margin-top: 20px;
   color: #ffffff;
-  background-color: #35424a;
+  background-color: #83b9bd;
   text-align: center;
 }
