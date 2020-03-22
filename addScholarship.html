@@ -7,6 +7,7 @@
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="./styles/addScholarship.css" />
+
   </head>
 
   <body>
@@ -34,14 +35,12 @@
       <input type="text" id="sName" size="30" /><br /><br />
 
       <label for="departments">Department:</label><br />
-      <select id="departments" name="departments"
-        ><br />
-        <option value="actuarialSciences">Actuarial Sciences</option>
-        <option value="fineArts">Fine Arts</option>
-        <option value="internRelations"
-          >International Relations</option
-        > </select
-      ><br /><br />
+      <select id="departments" name="departments">
+      </select><br /><br />
+
+      <script type="text/javascript" src="./scripts/addScholarship.js"></script>
+      <script>deptArray();</script>
+      
 
       <label for="sDesc">Description:</label><br />
       <textarea> </textarea><br /><br />
