@@ -54,7 +54,7 @@ header {
 }
 /*Header link*/
 header a {
-  color: #388087;
+  color: #327379;
   text-decoration: none;
 }
 /* Univeristy of Manitoba Logo */
@@ -114,6 +114,6 @@ footer {
   padding: 20px;
   margin-top: 20px;
   color: #ffffff;
-  background-color: #83b9bd;
+  background-color: #388087;
   text-align: center;
 }
