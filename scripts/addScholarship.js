@@ -32,23 +32,73 @@ function deptArray() {
 
 function dateOfScholarship(typeOfScholarship){
 
+    //Yearly Scholarship
     if(typeOfScholarship == "1")
     {
         //start date for Scholarship
         var startDate = new Date();
-        startDate.setMonth
-        startDate.setDate(06);
-        
+        startDate.setMonth(8);
+        startDate.setDate(13);
 
+        var strStart=startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getDate();
+        document.getElementById("startDate").value=strStart;
+        
         //Deadline for Scholarship
         var deadline = new Date();
         deadline.setMonth(4);
         deadline.setDate(13);
         deadline.setFullYear(deadline.getFullYear() + 1);
 
-        var str=deadline.getMonth() + 1 + "/" + deadline.getDate() + "/" + deadline.getFullYear();
-        document.getElementById("deadline").value=str;
+        var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
+        document.getElementById("deadline").value=strDead;
         
+    }
+
+    if(typeOfScholarship == "2")
+    {
+        //start date for Scholarship
+        var startDate = new Date();
+        startDate.setMonth(8);
+        startDate.setDate(13);
+
+        var strStart=startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getDate();
+        document.getElementById("startDate").value=strStart;
+        
+        //Deadline for Scholarship
+        var deadline = new Date();
+        deadline.setMonth(11);
+        deadline.setDate(13);
+
+        var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
+        document.getElementById("deadline").value=strDead;
+    }
+
+    if(typeOfScholarship == "3")
+    {
+        //start date for Scholarship
+        var startDate = new Date();
+        startDate.setMonth(0);
+        startDate.setDate(13);
+        startDate.setFullYear(startDate.getFullYear() + 1);
+
+        var strStart=startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getDate();
+        document.getElementById("startDate").value=strStart;
+        
+        //Deadline for Scholarship
+        var deadline = new Date();
+        deadline.setMonth(4);
+        deadline.setDate(13);
+        deadline.setFullYear(deadline.getFullYear() + 1);
+
+        var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
+        document.getElementById("deadline").value=strDead;
+    }
+
+    if(typeOfScholarship == "4")
+    {
+        var str = "yyyy/mm/dd"
+        document.getElementById("startDate").value=str;
+        document.getElementById("deadline").value=str;
     }
 
 }

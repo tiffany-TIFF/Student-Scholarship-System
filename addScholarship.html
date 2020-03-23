@@ -76,15 +76,19 @@
       <label for="Term">Scholarship Type</label><br>
       <input type="radio" name="sType" onclick="dateOfScholarship(1)">
       <label for="year">Yearly Scholarship</label><br>
-      <input type="radio" name="sType">
-      <label for="fall">Termwise Scholarship</label>
+      <input type="radio" name="sType" onclick="dateOfScholarship(2)">
+      <label for="fall">Fall Scholarship</label><br>
+      <input type="radio" name="sType" onclick="dateOfScholarship(3)">
+      <label for="winter">Winter Scholarship</label><br>
+      <input type="radio" name="sType" onclick="dateOfScholarship(4)">
+      <label for="other">Other</label>
       <br><br>
 
       <label for="startDate">Application Start Date</label><br>
-      <input type="text" id="startDate" name="startDate"><br><br>
+      <input type="text" id="startDate" name="startDate" value='yyyy/mm/dd'><br><br>
 
       <label for="deadline">Application Deadline</label><br>
-      <input type="text" id="deadline" name="deadline" value=''><br><br>
+      <input type="text" id="deadline" name="deadline" value='yyyy/mm/dd'><br><br>
 
       <label for="Grade">Minimum Grade</label><br />
       <input
