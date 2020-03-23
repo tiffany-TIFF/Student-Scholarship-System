@@ -6,7 +6,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   margin: 0;
-  background: #f6f6f2;
+  background: #ffffff;
   color: white;
 }
 
@@ -39,7 +39,7 @@ nav a {
 
 /*Global*/
 .container {
-  width: 60%;
+  width: 85%;
   margin: auto;
   overflow: hidden;
 }
@@ -47,14 +47,14 @@ nav a {
 /*Header*/
 header {
   background: #f6f6f2;
-  color: #388087;
+  color: #35639b;
   padding-top: 30px;
   min-height: 70px;
   font-family: "Montserrat", sans-serif;
 }
 /*Header link*/
 header a {
-  color: #388087;
+  color: #35639b;
   text-decoration: none;
 }
 /* Univeristy of Manitoba Logo */
@@ -67,7 +67,6 @@ header #branding h1 {
 }
 
 .add {
-  padding-left: 100px;
   border-color: black;
   color: black;
   font-family: "Montserrat", sans-serif;
@@ -95,10 +94,15 @@ br {
   line-height: 10px;
 }
 
+#title {
+  color: #35639b;
+  font-size: 20px;
+}
+
 footer {
   padding: 20px;
   margin-top: 20px;
   color: #ffffff;
-  background-color: #35424a;
+  background-color: #35639b;
   text-align: center;
 }
