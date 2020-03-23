@@ -1,0 +1,38 @@
+SchID,Name ,Description,AwardValue,NumberOfAwards,Donor,Status,ApplicationStartDate,Deadline
+1,3M National Student Fellowship,"this is hard to get, good luck",1000000,1,STLHE: Society for Teaching and Learning in Higher Education,0,2019/9/8,2020/1/31
+2,Alberta Athletic Award,"Offered annually to Alberta residents who are members of specified university teams that qualify for competition. Must be enrolled and maintain full-time status at the University of Calgary in any undergraduate, graduate or professional program. Entering students who have been admitted to the university may also be considered for this award based on high school marks
+Canadian citizen; Alberta resident
+Achieved a 2.00 GPA or better during the last term as a full-time student.",1800,99,Government of Alberta through the Alberta Lottery Fund,1,2020/3/3,2020/8/30
+3,Alexander Rutherford Scholarship,"Offered annually to undergraduate students entering any faculty. The University of Calgary has confirmed your full-time enrolment and Student Aid Alberta will mail the cheque to your home address, as provided on the application form.
+To recognize and reward exceptional academic achievement. Awarded on the basis of achieving a minimum 75.0% average on five designated subjects in Grades 10, 11 and 12. A student need not have achieved this average in all three grades or in all courses to qualify for a portion of the scholarship
+Canadian citizens or Permanent Residents and Alberta residents
+Apply online through the Students Finance System (SFS) on the Student Aid Alberta website.",2999,99,Government of Alberta,1,2020/4/5,2020/7/30
+4,David Johnston Law Scholarship,"Offered annually to a full-time undergraduate student entering the Faculty of Law, JD Program
+To recognize a student's past accomplishments including academic achievement and volunteer activities. Special consideration will be given to students who are enrolled in a combined degree program, e.g. JD/MBA program
+Canadian citizen or Permanent Resident currently living in Alberta
+Selection will be made by the Faculty of Law.",10000,1,Government of Alberta,1,2020/4/15,2020/8/31
+5,Dr. Gary McPherson Leadership Scholarship,"Offered annually to students enrolled full-time in a post-secondary program at a designated Alberta institution
+Demonstrated outstanding leadership, especially in the area of disability, and/or initiative to improve the lives of other people while attending a post-secondary institution in Alberta
+Canadian citizen or Permanent Resident currently living in Alberta.
+",2000,15,"
+Government of Alberta",1,2020/3/4,2020/8/31
+6,Indigenous Careers Award,"Offered annually to undergraduate students enrolled at the University of Calgary. Enrolled full time in the current academic year. Students enrolled full time in the fall and winter terms are eligible to receive $4,000. Students enrolled full time in the fall OR winter term only are eligible to receive $2,000. Applicants with a documented disability who have completed at least 12.00 units over the previous fall and winter terms at the University of Calgary will also be considered
+Canadian Indigenous student; Status Indian/First Nations, Non-Status Indian/First Nations, Metis, or Inuit (applicants must provide a copy of proof of Indigenous ancestry)
+Alberta resident and Canadian citizen, Permanent Resident, or Protected Person under Canada's Immigration and Refugee Protection Act
+Academic Merit",4000,99,Alberta Student Aid,1,2020/4/5,2021/1/15
+7,Jason Lang Scholarship,"Offered annually to continuing undergraduate students in any faculty who are Alberta residents and have achieved a minimum GPA of 3.20 on all courses (minimum 24.00 units) completed over the previous fall and winter terms at the University of Calgary. Recipients must be continuing full-time at an eligible Alberta post-secondary institution in the fall and/or winter term. Student Aid Alberta will send a cheque to the home address of eligible recipients in December for students who applied by September 30.
+Academic merit. Must have achieved a minimum GPA of 3.20 on all courses completed in the previous fall and winter terms at the University of Calgary
+Must be Canadian citizens or Permanent residents, and Alberta residents
+Must not be receiving a Louise McKinney Scholarship in the same award year Apply: Complete the online application available in my.ucalgary.ca",1000,9999,Government of Alberta,1,2020/4/15,2020/9/30
+8,Laurence Decore Award for Student Leadership,"Offered annually to post-secondary students currently enrolled in a minimum of three full courses at a designated Alberta post-secondary institution
+Students who have demonstrated outstanding dedication and leadership to fellow students and to their community
+Canadian citizen or Permanent Resident and Alberta resident
+Involvement in either student government or student societies, clubs or organizations. Candidates may be involved in student organizations at the provincial or national level or in non-profit community organizations.",1000,10,Government of Alberta,1,2020/2/3,2020/9/30
+9,Louise McKinney Scholarship,"Offered annually to continuing undergraduate students who are Canadian citizens or Permanent Residents of Canada and Alberta residents. Recipients must be continuing full-time at an eligible post-secondary institution in the fall and/or winter term. Student Aid Alberta will send a cheque to the home address of eligible recipients
+Outstanding academic merit based on a minimum course load of four full-course equivalents taken at the University of Calgary over the previous fall and winter terms
+Minimum course load of four full-course equivalents taken at the U of C in the previous fall and winter terms. Students need not be returning to the University of Calgary, but must be entering a program at a recognized post-secondary institution as a full-time student.
+",2500,350,Government of Alberta,1,2020/4/5,2020/9/30
+10,Robert C. Carson Memorial Bursary,"Offered annually to a student entering second year in the Faculty of Law, JD program
+Canadian citizen or Permanent Resident; Alberta resident for at least three years
+Preference is given to a Canadian Indigenous student without sponsorship
+In the event that there are no Indigenous students without sponsorship, non-sponsored students are considered.",500,1,"Established by Alberta Justice, Attorney General and Government of Alberta",1,2020/4/6,2020/10/1
