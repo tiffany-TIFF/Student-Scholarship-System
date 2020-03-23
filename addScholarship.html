@@ -72,18 +72,19 @@
       <label for="numOfAwards">Number of Awards</label><br>
       <input type="number" id="numOfAwards" name="numOfAwards" required><br><br>
 
+      <script type="text/javascript" src="./scripts/addScholarship.js"></script>
       <label for="Term">Scholarship Type</label><br>
-      <input type="radio" name="sType" value="year">
+      <input type="radio" name="sType" onclick="dateOfScholarship(1)">
       <label for="year">Yearly Scholarship</label><br>
-      <input type="radio" name="sType" value="term">
+      <input type="radio" name="sType">
       <label for="fall">Termwise Scholarship</label>
       <br><br>
 
       <label for="startDate">Application Start Date</label><br>
-      <input type="date" id="startDate" name="startDate"><br><br>
+      <input type="text" id="startDate" name="startDate"><br><br>
 
       <label for="deadline">Application Deadline</label><br>
-      <input type="date" id="deadline" name="deadline"><br><br>
+      <input type="text" id="deadline" name="deadline" value=''><br><br>
 
       <label for="Grade">Minimum Grade</label><br />
       <input

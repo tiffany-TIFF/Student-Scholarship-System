@@ -2,7 +2,7 @@
 /*Array for Course Codes*/
 function deptArray() {
     var select = document.getElementById("departments"),
-        arr = ["ACWR", "ACCT", "ACSC", "ENAE", "AFST", "ASL", "ANTH", "ALMC", "ARKY",
+        dept = ["ACWR", "ACCT", "ACSC", "ENAE", "AFST", "ASL", "ANTH", "ALMC", "ARKY",
                 "ARST", "ARCH", "APLA", "ART", "ARHI", "ASHA", "ARTS", "ASTR", "ASPH",
                 "BCEM", "BIOL", "BMEN", "BIST", "BOTA", "VSEN", "BTMA", "CNST", "CMMB",
                 "CEST", "ENCH", "CHEM", "CHIN", "ENCI", "CMCL", "COMS", "MDCH", "CORE",
@@ -21,11 +21,34 @@ function deptArray() {
                 "STST", "SGMA", "SCMA", "SUST", "SEDV", "TAP", "TOUR", "TRAN", "UNEX",
                 "UNIV", "UBST", "VETM", "WELL", "WMST", "ZOOL"];
     
-        for(var i = 0; i < arr.length; i++)
+        for(var i = 0; i < dept.length; i++)
         {
             var option = document.createElement("OPTION"),
-                txt = document.createTextNode(arr[i]);
+                txt = document.createTextNode(dept[i]);
             option.appendChild(txt);
             select.insertBefore(option, select.lastChild);
         }
     }
+
+function dateOfScholarship(typeOfScholarship){
+
+    if(typeOfScholarship == "1")
+    {
+        //start date for Scholarship
+        var startDate = new Date();
+        startDate.setMonth
+        startDate.setDate(06);
+        
+
+        //Deadline for Scholarship
+        var deadline = new Date();
+        deadline.setMonth(4);
+        deadline.setDate(13);
+        deadline.setFullYear(deadline.getFullYear() + 1);
+
+        var str=deadline.getMonth() + 1 + "/" + deadline.getDate() + "/" + deadline.getFullYear();
+        document.getElementById("deadline").value=str;
+        
+    }
+
+}
