@@ -70,12 +70,11 @@ header #branding h1 {
   padding-left: 100px;
   border-color: black;
   color: black;
-  font-family: monospace;
+  font-family: "Montserrat", sans-serif;
 }
 
 /*text area for description*/
 textarea {
-  font-family: Arial;
   width: 500px;
   height: 100px;
   font-size: 12px;
@@ -88,6 +87,8 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
+  border-width: thin;
+  border-color: gray;
 }
 
 br {

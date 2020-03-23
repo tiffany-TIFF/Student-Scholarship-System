@@ -30,32 +30,80 @@
       </div>
     </header>
 
+    <!--Criteria fields-->
     <form class="add">
-      <label for="sName">Scholarship Name:</label><br />
+      <label for="sName">Scholarship Name</label><br />
       <input type="text" id="sName" size="30" required><br /><br />
 
-      <label for="departments">Department:</label><br />
+      <label for="departments">Department</label><br />
       <select id="departments" name="departments">
       </select><br /><br />
 
       <script type="text/javascript" src="./scripts/addScholarship.js"></script>
       <script>deptArray();</script>
       
+      <label for="studentTypes">Student Type</label><br>
+      <select id="studentTypes" name="studentTypes">
+        <option value="undergraduate">Undergraduate</option>
+        <option value="graduate">Graduate</option>
+        <option value=phd>PHD</option>
+      </select><br><br>
 
-      <label for="sDesc">Description:</label><br />
-      <textarea> </textarea><br /><br />
+      <label for="yearEntering">Year Requirement (entering or current)</label><br>
+      <input type="checkbox" value="1">
+      <label for="1">1st Year</label><br>
+      <input type="checkbox" value="2">
+      <label for="2">2nd Year</label><br>
+      <input type="checkbox" value="3">
+      <label for="3">3rd Year</label><br>
+      <input type="checkbox" value="4">
+      <label for="4">4th Year</label>
+      <br><br>
 
-      <label for="GPA">Minimum GPA Req:</label><br />
+      <label for="desc">Description</label><br />
+      <textarea name=desc required></textarea><br /><br />
+
+      <label for="awardValue">Award Value<br>$</label>
+      <input type="number" id="awardValue" name="awardValue" step="0.01" required><br><br>
+
+      <label for="numOfAwards">Number of Awards</label><br>
+      <input type="number" id="numOfAwards" name="numOfAwards" required><br><br>
+
+      <label for="Term">Scholarship Type</label><br>
+      <input type="radio" name="sType" value="year">
+      <label for="year">Yearly Scholarship</label><br>
+      <input type="radio" name="sType" value="term">
+      <label for="fall">Termwise Scholarship</label>
+      <br><br>
+
+      <label for="startDate">Application Start Date</label><br>
+      <input type="date" id="startDate" name="startDate"><br><br>
+
+      <label for="deadline">Application Deadline</label><br>
+      <input type="date" id="deadline" name="deadline"><br><br>
+
+      <label for="Grade">Minimum Grade</label><br />
       <input
-        type="number"
-        id="GPA"
-        name="GPA"
-        step="0.01"
-        min="3.7"
-        max="4.0"
-        ;
+        type="text"
+        id="Grade"
+        name="Grade"
+        size=4
         required
       /><br /><br />
+
+      <label for="transcriptReq">Transcript Requirement(s)</label><br>
+      <select id="transcriptReq" name="transcriptReq">
+        <option value="noW">no W</option>
+        <option value="noF">no F</option>
+        <option value="noW&F">no W & no F</option>
+      </select><br><br>
+
+      <label for="need">Document(s) Required</label><br>
+      <input type="checkbox" value="trans">
+      <label for="trans">Transcript</label><br>
+      <input type="checkbox" value="nomin">
+      <label for="nomin">Nomination</label>
+      <br><br>
 
       <input type="submit" id="submit" />
     </form>
