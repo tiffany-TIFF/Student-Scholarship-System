@@ -7,6 +7,7 @@
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="./styles/addScholarship.css" />
+
   </head>
 
   <body>
@@ -34,9 +35,13 @@
         <h1>Add Scholarships</h1>
       </div>
 
-      <form class="add">
-        <label for="sName">Scholarship Name:</label><br />
-        <input type="text" id="sName" size="30" /><br /><br />
+      <label for="departments">Department:</label><br />
+      <select id="departments" name="departments">
+      </select><br /><br />
+
+      <script type="text/javascript" src="./scripts/addScholarship.js"></script>
+      <script>deptArray();</script>
+      
 
         <label for="departments">Department:</label><br />
         <select id="departments" name="departments"
