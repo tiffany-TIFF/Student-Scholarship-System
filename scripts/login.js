@@ -5,6 +5,7 @@ function testAlert() {
   alert("Code reached");
 }
 
+// Validates if the username and password are correct
 function validate()
     {
       var username = document.getElementById("name");
