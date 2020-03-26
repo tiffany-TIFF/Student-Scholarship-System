@@ -30,6 +30,7 @@ function deptArray() {
         }
     }
 
+/*Automated Scholarship Date*/
 function dateOfScholarship(typeOfScholarship){
 
     //Yearly Scholarship
@@ -53,7 +54,8 @@ function dateOfScholarship(typeOfScholarship){
         document.getElementById("deadline").value=strDead;
         
     }
-
+    
+    //Fall Scholarship
     if(typeOfScholarship == "2")
     {
         //start date for Scholarship
@@ -72,7 +74,8 @@ function dateOfScholarship(typeOfScholarship){
         var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
         document.getElementById("deadline").value=strDead;
     }
-
+    
+    //Winter Scholarship
     if(typeOfScholarship == "3")
     {
         //start date for Scholarship
@@ -93,7 +96,8 @@ function dateOfScholarship(typeOfScholarship){
         var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
         document.getElementById("deadline").value=strDead;
     }
-
+    
+    //"blank" fields
     if(typeOfScholarship == "4")
     {
         var str = "yyyy/mm/dd"
