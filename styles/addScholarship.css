@@ -74,7 +74,6 @@ header #branding h1 {
 
 /*text area for description*/
 textarea {
-  font-family: Arial;
   width: 500px;
   height: 100px;
   font-size: 12px;

@@ -1,8 +1,35 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@jshenny 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+tiffany-TIFF
+/
+Student-Scholarship-System
+1
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
+Student-Scholarship-System/scripts/addScholarship.js / 
+@katearevir katearevir documentation
+d912d8d 12 hours ago
+108 lines (90 sloc)  4.38 KB
+  
+Code navigation is available!
+Navigate your code with ease. Click on function and method calls to jump to their definitions or references in the same repository. Learn more
+
 
 /*Array for Course Codes*/
 function deptArray() {
     var select = document.getElementById("departments"),
-        arr = ["ACWR", "ACCT", "ACSC", "ENAE", "AFST", "ASL", "ANTH", "ALMC", "ARKY",
+        dept = ["ACWR", "ACCT", "ACSC", "ENAE", "AFST", "ASL", "ANTH", "ALMC", "ARKY",
                 "ARST", "ARCH", "APLA", "ART", "ARHI", "ASHA", "ARTS", "ASTR", "ASPH",
                 "BCEM", "BIOL", "BMEN", "BIST", "BOTA", "VSEN", "BTMA", "CNST", "CMMB",
                 "CEST", "ENCH", "CHEM", "CHIN", "ENCI", "CMCL", "COMS", "MDCH", "CORE",
@@ -21,11 +48,100 @@ function deptArray() {
                 "STST", "SGMA", "SCMA", "SUST", "SEDV", "TAP", "TOUR", "TRAN", "UNEX",
                 "UNIV", "UBST", "VETM", "WELL", "WMST", "ZOOL"];
     
-        for(var i = 0; i < arr.length; i++)
+        for(var i = 0; i < dept.length; i++)
         {
             var option = document.createElement("OPTION"),
-                txt = document.createTextNode(arr[i]);
+                txt = document.createTextNode(dept[i]);
             option.appendChild(txt);
             select.insertBefore(option, select.lastChild);
         }
     }
+
+/*Automated Scholarship Date*/
+function dateOfScholarship(typeOfScholarship){
+
+    //Yearly Scholarship
+    if(typeOfScholarship == "1")
+    {
+        //start date for Scholarship
+        var startDate = new Date();
+        startDate.setMonth(8);
+        startDate.setDate(13);
+
+        var strStart=startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getDate();
+        document.getElementById("startDate").value=strStart;
+        
+        //Deadline for Scholarship
+        var deadline = new Date();
+        deadline.setMonth(4);
+        deadline.setDate(13);
+        deadline.setFullYear(deadline.getFullYear() + 1);
+
+        var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
+        document.getElementById("deadline").value=strDead;
+        
+    }
+    
+    //Fall Scholarship
+    if(typeOfScholarship == "2")
+    {
+        //start date for Scholarship
+        var startDate = new Date();
+        startDate.setMonth(8);
+        startDate.setDate(13);
+
+        var strStart=startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getDate();
+        document.getElementById("startDate").value=strStart;
+        
+        //Deadline for Scholarship
+        var deadline = new Date();
+        deadline.setMonth(11);
+        deadline.setDate(13);
+
+        var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
+        document.getElementById("deadline").value=strDead;
+    }
+    
+    //Winter Scholarship
+    if(typeOfScholarship == "3")
+    {
+        //start date for Scholarship
+        var startDate = new Date();
+        startDate.setMonth(0);
+        startDate.setDate(13);
+        startDate.setFullYear(startDate.getFullYear() + 1);
+
+        var strStart=startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getDate();
+        document.getElementById("startDate").value=strStart;
+        
+        //Deadline for Scholarship
+        var deadline = new Date();
+        deadline.setMonth(4);
+        deadline.setDate(13);
+        deadline.setFullYear(deadline.getFullYear() + 1);
+
+        var strDead=deadline.getFullYear() + "/" + (deadline.getMonth() + 1) + "/" + deadline.getDate();
+        document.getElementById("deadline").value=strDead;
+    }
+    
+    //"blank" fields
+    if(typeOfScholarship == "4")
+    {
+        var str = "yyyy/mm/dd"
+        document.getElementById("startDate").value=str;
+        document.getElementById("deadline").value=str;
+    }
+
+}
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

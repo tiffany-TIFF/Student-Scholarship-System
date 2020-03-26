@@ -1,3 +1,11 @@
+Skip to content Search or jump to… Pull requests Issues Marketplace Explore
+@jshenny Learn Git and GitHub without any code! Using the Hello World guide,
+you’ll start a branch, write comments, and open a pull request. tiffany-TIFF /
+Student-Scholarship-System 1 00 Code Issues 0 Pull requests 0 Actions Projects 0
+Wiki Security Insights Student-Scholarship-System/addScholarship.html @jshenny
+jshenny added some documentation 2df9d36 3 days ago @katearevir@jshenny 127
+lines (109 sloc) 4.32 KB
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +19,7 @@
 
   <body>
     <header>
+      <!--Univeristy Of Manitoba-->
       <div class="container">
         <div id="branding">
           <h1><a href="home.html">University of Manitoba</a></h1>
@@ -32,13 +41,13 @@
     <div class="container" id="title">
       <h1>Add Scholarships</h1>
     </div>
-
+    <!--Criteria fields-->
     <div class="container">
       <form class="add">
-        <label for="sName">Scholarship Name:</label><br />
-        <input type="text" id="sName" size="30" /><br /><br />
+        <label for="sName">Scholarship Name</label><br />
+        <input type="text" id="sName" size="30" required /><br /><br />
 
-        <label for="departments">Department:</label><br />
+        <label for="departments">Department</label><br />
         <select id="departments" name="departments"> </select
         ><br /><br />
 
@@ -50,19 +59,98 @@
           deptArray();
         </script>
 
-        <label for="sDesc">Description:</label><br />
-        <textarea> </textarea><br /><br />
+        <label for="studentTypes">Student Type</label><br />
+        <select id="studentTypes" name="studentTypes">
+          <option value="undergraduate">Undergraduate</option>
+          <option value="graduate">Graduate</option>
+          <option value="phd">PhD</option> </select
+        ><br /><br />
 
-        <label for="GPA">Minimum GPA Req:</label><br />
+        <label for="yearEntering">Year Requirement (entering or current)</label
+        ><br />
+        <input type="checkbox" value="1" />
+        <label for="1">1st Year</label><br />
+        <input type="checkbox" value="2" />
+        <label for="2">2nd Year</label><br />
+        <input type="checkbox" value="3" />
+        <label for="3">3rd Year</label><br />
+        <input type="checkbox" value="4" />
+        <label for="4">4th Year</label>
+        <br /><br />
+
+        <label for="desc">Description</label><br />
+        <textarea name="desc" required></textarea><br /><br />
+
+        <label for="awardValue">Award Value<br />$</label>
         <input
           type="number"
-          id="GPA"
-          name="GPA"
+          id="awardValue"
+          name="awardValue"
           step="0.01"
-          min="3.7"
-          max="4.0"
-          ;
+          required
         /><br /><br />
+
+        <label for="numOfAwards">Number of Awards</label><br />
+        <input
+          type="number"
+          id="numOfAwards"
+          name="numOfAwards"
+          required
+        /><br /><br />
+
+        <script
+          type="text/javascript"
+          src="./scripts/addScholarship.js"
+        ></script>
+        <label for="Term">Scholarship Type</label><br />
+        <input type="radio" name="sType" onclick="dateOfScholarship(1)" />
+        <label for="year">Yearly Scholarship</label><br />
+        <input type="radio" name="sType" onclick="dateOfScholarship(2)" />
+        <label for="fall">Fall Scholarship</label><br />
+        <input type="radio" name="sType" onclick="dateOfScholarship(3)" />
+        <label for="winter">Winter Scholarship</label><br />
+        <input type="radio" name="sType" onclick="dateOfScholarship(4)" />
+        <label for="other">Other</label>
+        <br /><br />
+
+        <label for="startDate">Application Start Date</label><br />
+        <input
+          type="text"
+          id="startDate"
+          name="startDate"
+          value="yyyy/mm/dd"
+        /><br /><br />
+
+        <label for="deadline">Application Deadline</label><br />
+        <input
+          type="text"
+          id="deadline"
+          name="deadline"
+          value="yyyy/mm/dd"
+        /><br /><br />
+
+        <label for="Grade">Minimum Grade</label><br />
+        <input
+          type="text"
+          id="Grade"
+          name="Grade"
+          size="4"
+          required
+        /><br /><br />
+
+        <label for="transcriptReq">Transcript Requirement(s)</label><br />
+        <select id="transcriptReq" name="transcriptReq">
+          <option value="noW">no W</option>
+          <option value="noF">no F</option>
+          <option value="noW&F">no W & no F</option> </select
+        ><br /><br />
+
+        <label for="need">Document(s) Required</label><br />
+        <input type="checkbox" value="trans" />
+        <label for="trans">Transcript</label><br />
+        <input type="checkbox" value="nomin" />
+        <label for="nomin">Nomination</label>
+        <br /><br />
 
         <input type="submit" id="submit" />
       </form>
@@ -75,3 +163,5 @@
     </footer>
   </body>
 </html>
+© 2020 GitHub, Inc. Terms Privacy Security Status Help Contact GitHub Pricing
+API Training Blog About
