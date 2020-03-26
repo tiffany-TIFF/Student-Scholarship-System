@@ -75,6 +75,7 @@ header #branding h1 {
   color: #f6f6f2;
 }
 
+/*Home background*/
 #showcase h1 {
   margin-top: 100px;
   font-size: 55px;
@@ -85,6 +86,7 @@ header #branding h1 {
   font-size: 20px;
 }
 
+/* Icons */
 #boxes {
   margin-top: 50px;
 }
