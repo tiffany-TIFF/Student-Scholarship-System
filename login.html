@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="./styles/normalize.css" />
-    <link rel="stylesheet" href="./styles/login.css">
-    <script ></script>
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="./styles/normalize.css" />
+  <link rel="stylesheet" href="./styles/login.css">
+  <script></script>
+</head>
 
-    <script src="./scripts/login.js"></script>
-    <div id="loginbox" class="login-box">
-      <h1>University of Manitoba</h1>
-      <h2>Student Scholarship System</h2>
-      <button onclick="loginBoxdisplay(0)" style="width:auto;">Login</button>
+<body>
 
-    </div>
-   
-    <div id="id01" class="modal">
+  <script src="./scripts/login.js"></script>
+  <div id="loginbox" class="login-box">
+    <h1>University of Manitoba</h1>
+    <h2>Student Scholarship System</h2>
+    <button onclick="loginBoxdisplay(0)" style="width:auto;">Login</button>
 
-      <form class="modal-content animate">
-        <div class="imgcontainer">
-          <span onclick="loginBoxdisplay(1)" class="close" title="Close Modal">&times;</span>
+  </div>
+
+  <div id="id01" class="modal">
+
+    <form class="modal-content animate">
+      <div class="imgcontainer">
+        <span onclick="loginBoxdisplay(1)" class="close" title="Close Modal">&times;</span>
+      </div>
+
+
+      <!--Log in pop up-->
+      <div class="container" style="background-color:#f1f1f1">
+        <div class="container">
+          <label for="name"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" id="name" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" id="psw" required>
+
+          <button type="submit" onclick="validate()">Login</button>
+
+          <label>
+            <input type="checkbox" onclick="myFunction()"> Show Password
+          </label>
+
         </div>
-    
-        
-        <!--Log in pop up-->
-        <div class="container" style="background-color:#f1f1f1">
-          <div class="container">
-            <label for="name"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" id="name" required>
-      
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" id="psw" required>
-              
-            <button type="submit" onclick="validate()" >Login</button>
+        <button type="button" onclick="loginBoxdisplay(1)" class="cancelbtn">Cancel</button>
+        <span class="psw"> <a href="#">Forgot password?</a></span>
+      </div>
+    </form>
+  </div>
+</body>
 
-            <label>
-              <input type="checkbox" onclick="myFunction()"> Show Password
-            </label>
-
-          </div>
-          <button type="button" onclick="loginBoxdisplay(1)" class="cancelbtn">Cancel</button>
-          <span class="psw"> <a href="#">Forgot password?</a></span>
-        </div>
-      </form>
-    </div>
-  </body>
 </html>
