@@ -160,7 +160,7 @@ function deptArray() {
       "VETM",
       "WELL",
       "WMST",
-      "ZOOL"
+      "ZOOL",
     ];
 
   for (var i = 0; i < dept.length; i++) {
