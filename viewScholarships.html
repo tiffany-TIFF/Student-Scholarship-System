@@ -28,7 +28,6 @@
             <li><a href="studentHome.html">Home</a></li>
             <li><a href="viewScholarships.html">View Scholarships</a></li>
             <li><a href="myScholarships.html">My Scholarships</a></li>
-            <li><a href="studentStats.html">Stats</a></li>
             <li><a href="login.html">Logout</a></li>
           </ul>
         </nav>
@@ -60,15 +59,12 @@
 
       <!--Script for clickable table-->
       <script>
-
-        $(document).ready(function() {
-          $(document.body).on("click", "tr[data-href]", function() {
+        $(document).ready(function () {
+          $(document.body).on("click", "tr[data-href]", function () {
             window.location.href = this.dataset.href;
-            });
+          });
         });
-        
       </script>
-
     </div>
   </body>
   <footer>
