@@ -28,6 +28,7 @@ function validate() {
     var userIndex = users.findIndex((x) => x.user === username);
   }
 
+  // Check if the login and password are correct
   if (username === "" || password === "") {
     alert("Username and Password required");
     return false;
