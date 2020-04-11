@@ -3,13 +3,14 @@ var users = [
   {
     user: "Admin",
     pass: "AdminPass",
-    coordinator: true
+    coordinator: true,
   },
   {
     user: "TestUser",
     pass: "TestPass",
-    coordinator: false
-  }];
+    coordinator: false,
+  },
+];
 
 function testAlert() {
   alert("Code reached");
@@ -23,16 +24,15 @@ function validate() {
   username = username.value;
   password = password.value;
 
-  if (users.findIndex(x => x.user === username) > -1) {
-    var userIndex = users.findIndex(x => x.user === username);
+  if (users.findIndex((x) => x.user === username) > -1) {
+    var userIndex = users.findIndex((x) => x.user === username);
   }
 
-  if (username == "" || password == "") {
+  // Check if the login and password are correct
+  if (username === "" || password === "") {
     alert("Username and Password required");
     return false;
-  }
-
-  else if (userIndex > -1 && users[userIndex].pass === password) {
+  } else if (userIndex > -1 && users[userIndex].pass === password) {
     alert("Login success!");
     if (users[userIndex].coordinator == true) {
       window.open("home.html");
@@ -40,8 +40,7 @@ function validate() {
       window.open("studentHome.html");
     }
     return true;
-  }
-  else {
+  } else {
     alert("Incorrect Username or Password");
     return false;
   }
@@ -50,20 +49,18 @@ function validate() {
 function myFunction() {
   let x = document.getElementById("psw");
   if (x.type === "password") {
-    x.type = 'text';
+    x.type = "text";
   } else {
     x.type = "password";
   }
 }
 
 function loginBoxdisplay(v) {
-
   if (v == 1) {
-    document.getElementById('id01').style.display = 'none';
-    document.getElementById('loginbox').style.visibility = 'visible';
-  }
-  else if (v == 0) {
-    document.getElementById('id01').style.display = 'block';
-    document.getElementById('loginbox').style.visibility = 'hidden';
+    document.getElementById("id01").style.display = "none";
+    document.getElementById("loginbox").style.visibility = "visible";
+  } else if (v == 0) {
+    document.getElementById("id01").style.display = "block";
+    document.getElementById("loginbox").style.visibility = "hidden";
   }
 }
