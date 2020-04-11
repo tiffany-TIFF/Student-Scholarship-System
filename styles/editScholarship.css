@@ -88,6 +88,7 @@ br {
   font-size: 20px;
 }
 
+/*Table*/
 table {
   border-collapse: collapse;
   width: 100%;
@@ -107,6 +108,7 @@ td, th {
   padding: 8px;
 }
 
+/*footer*/
 footer {
   padding: 20px;
   margin-top: 20px;

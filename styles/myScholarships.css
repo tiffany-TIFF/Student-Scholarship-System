@@ -7,7 +7,7 @@ html {
     line-height: 1.5;
     margin: 0;
     background: #ffffff;
-    color: white;
+    color: #35639b;
   }
   
   a:hover {
@@ -79,6 +79,26 @@ html {
   #title {
     color: #35639b;
     font-size: 20px;
+  }
+
+  /*Table*/
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  td {
+    color: black;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
   }
   
   footer {
