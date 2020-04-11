@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
  
-// open database in memory
+//open access to database
 let db = new sqlite3.Database('ScholarshipSystem.db', (err) => {
   if (err) {
     return console.error(err.message);
@@ -8,6 +8,7 @@ let db = new sqlite3.Database('ScholarshipSystem.db', (err) => {
   console.log('Connected to the SQlite database.');
 });
 
+//SQL statement to query the data from the database
 let sql = `SELECT Name name FROM Scholarship
 ORDER BY name`;
 
@@ -15,12 +16,11 @@ db.all(sql, [], (err, rows) => {
     if (err) {
         throw err;
     }
-    //console.log("read department");
     rows.forEach((row) => {
+        
         console.log(row.name);
       });
 });
-
 
 // close the database connection
 db.close((err) => {
