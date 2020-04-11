@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <header>
       <!--Univeristy Of Manitoba-->
       <div class="container">
@@ -41,21 +42,33 @@
       <table>
         <tr>
           <th>Name</th>
-          <th>Description</th>
           <th>Value</th>
           <th>Deadline</th>
+          <th>Year Entering</th>
+          <th>Level of Study</th>
+          <th>Status</th>
         </tr>
-        <!--- example
-        <tr>
+        <tr data-href="myScholarships.html">
           <td>Alberta Athletic Award</td>
-          <td>Offered annually to Alberta residents who are members of specified university teams that qualify for competition. Must be enrolled and maintain full-time status at the University of Calgary in any undergraduate, graduate or professional program. Entering students who have been admitted to the university may also be considered for this award based on high school marks
-            Canadian citizen; Alberta resident
-            Achieved a 2.00 GPA or better during the last term as a full-time student.</td>
           <td>$1800</td>
-          <td>Accepted</td>
+          <td>2020/08/30</td>
+          <td>1st Year</td>
+          <td>Graduate</td>
+          <td>Open</td>
         </tr>
-      -->
       </table>
+
+      <!--Script for clickable table-->
+      <script>
+
+        $(document).ready(function() {
+          $(document.body).on("click", "tr[data-href]", function() {
+            window.location.href = this.dataset.href;
+            });
+        });
+        
+      </script>
+
     </div>
   </body>
   <footer>

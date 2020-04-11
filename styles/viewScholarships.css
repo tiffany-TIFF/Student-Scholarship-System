@@ -90,6 +90,10 @@ html {
   th {
     font-weight: bold;
   }
+
+  tr[data-href]{
+    cursor: pointer;
+  }
   
   td {
     color: black;
