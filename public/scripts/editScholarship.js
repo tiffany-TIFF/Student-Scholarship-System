@@ -1,4 +1,35 @@
-const sqlite3 = require("sqlite3").verbose();
+getScholarships();
+// request scholarships from server
+function getScholarships() {
+  $.get("/ScholarshipSystem", function (data) {
+    if (!data) {
+      console.log("No data received");
+    }
+    console.log("Received data:");
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i].name);
+    }
+    showScholarships(data);
+  });
+}
+
+// Show scholarships in a table on the page
+function showScholarships(scholarships) {
+  var tableRef = document.getElementById("sTable");
+  for (var i = 0; i < scholarships.length; i++) {
+    // insert a row
+    var newRow = tableRef.insertRow();
+
+    // insert a cell in the row
+    var newCell = newRow.insertCell(0);
+
+    // append a text node to the cell
+    var newText = document.createTextNode(scholarships[i].name);
+    newCell.appendChild(newText);
+
+  }
+}
+/*const sqlite3 = require("sqlite3").verbose();
 
 // open database in memory
 let db = new sqlite3.Database("../ScholarshipSystem.db", (err) => {
@@ -13,7 +44,7 @@ let sql = `SELECT s.SchID, s.Name name --s.*
           , d.DepartmentCode departmentCode
           , s.AwardValue awardValue, s.Deadline deadline
           , c.Value as "StudentType"
-          , b.Value as "YearEntering" 
+          , b.Value as "YearEntering"
           FROM Scholarship s
             LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
             LEFT JOIN (SELECT  SchID, value FROM ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
@@ -47,3 +78,4 @@ db.close((err) => {
   }
   console.log("Close the database connection.");
 });
+*/

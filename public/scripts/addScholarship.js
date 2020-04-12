@@ -271,32 +271,3 @@ function dateOfScholarship(typeOfScholarship) {
   }
 }
 
-const sqlite3 = require("sqlite3").verbose();
-
-function storeData() {
-  var name = document.getElementById("sName");
-
-  // open a database connection
-  let db = new sqlite3.Database("../ScholarshipSystem.db", (err) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    console.log("Connected to the SQlite database.");
-  });
-
-  //
-  let data = [name];
-  let sql = `UPDATE Scholarship
-            SET s.Name = ?
-            WHERE s.Name = ?`;
-
-  db.run(sql, data, function (err) {
-    if (err) {
-      return console.error(err.message);
-    }
-    console.log(`Row(s) updated: ${this.changes}`);
-  });
-
-  // close the database connection
-  db.close();
-}
