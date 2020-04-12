@@ -1,8 +1,9 @@
 var express = require("express");
 var app = express();
+const sqlite3 = require("sqlite3").verbose();
 
 //open access to database
-let db = new sqlite3.Database("/db/ScholarshipSystem.db", (err) => {
+let db = new sqlite3.Database("db/ScholarshipSystem.db", (err) => {
   if (err) {
     return console.error(err.message);
   }
