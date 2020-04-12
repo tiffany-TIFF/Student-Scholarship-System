@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="../styles/applyScholarship.css" />
+</head>
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <header>
+    <!--Univeristy Of Manitoba-->
+    <div class="container">
+      <div id="branding">
+        <h1><a href="home.html">University of Manitoba</a></h1>
+      </div>
+
+      <!--Navigation Bar-->
+      <nav>
+        <ul class="nav">
+          <li><a href="studentHome.html">Home</a></li>
+          <li><a href="viewScholarships.html">View Scholarships</a></li>
+          <li><a href="applyScholarships.html">Apply for Scholarship</a></li>
+          <li><a href="myScholarships.html">My Scholarships</a></li>
+          <li><a href="../login.html">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container" id="title">
+    <h1>Apply for Scholarship</h1>
+  </div>
+
+  <div class="container">
+    <form class="apply">
+      <label for="choose">Choose a Scholarship</label><br>
+      <select id="scholarships" name="scholarships">
+        <option>Test Scholarship</option>
+      </select><br><br>
+
+      <label for="uploadTranscript">Upload Transcript (if required)</label><br>
+      <input type="file" id="myfile" name="myfile"><br><br>
+
+      <label for="uploadNomination">Upload Nomination Letter (if required)</label><br>
+      <input type="file" id="myfile" name="myfile"><br><br>
+    </form>
+  </div>
+</body>
+<footer>
+  <p>
+    University of Manitoba Student Scholarship System, Copyright &copy; 2020
+  </p>
+</footer>
+
+</html>
