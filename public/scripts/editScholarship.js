@@ -44,7 +44,11 @@ function showScholarships(scholarships) {
 
     // student type column
     newCell = newRow.insertCell(4);
-    newText = document.createTextNode(scholarships[i].YearEntering);
+    if (scholarships[i].YearEntering !== null) {
+      newText = document.createTextNode(scholarships[i].YearEntering);
+    } else {
+      newText = document.createTextNode("Any");
+    }
     newCell.appendChild(newText);
 
     // student type column

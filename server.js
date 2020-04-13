@@ -27,15 +27,15 @@ app.get("/", function (request, response) {
 app.get("/ScholarshipSystem", function (request, response) {
   console.log("GET request received at /ScholarshipSystem");
   let sql = `SELECT s.SchID, s.Name name --s.*
-          , s.Description description
-          , d.DepartmentCode departmentCode
-          , s.AwardValue awardValue
-          , s.Deadline deadline
-          , c.Value as "StudentType"
-          FROM Scholarship s
-            LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
-            LEFT JOIN (SELECT  SchID, value FROM ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
-            LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
+  , s.Description description
+  , d.DepartmentCode departmentCode
+  , s.AwardValue awardValue, s.Deadline deadline
+  , c.Value as "StudentType"
+  , b.Value as "YearEntering" 
+  from Scholarship s
+       LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
+       LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
+       LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
 
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -47,24 +47,6 @@ app.get("/ScholarshipSystem", function (request, response) {
   });
 });
 
-/*
-app.get("/ScholarshipSystem", function (request, response) {
-  console.log("GET request received at /ScholarshipSystem");
-  let sql = `SELECT Name name,
-            Description description
-            FROM Scholarship
-            ORDER BY name`;
-
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      console.log("Error: " + err);
-    } else {
-      console.log("get");
-      response.send(rows);
-    }
-  });
-});
-*/
 // client sends data to server, most commonly sent from a user submitting a form
 app.post("/Scholarship", function (request, response) {
   console.log("POST request received at /Scholarship");

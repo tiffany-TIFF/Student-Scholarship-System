@@ -1,69 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../styles/viewScholarships.css"
-    />
-  </head>
 
-  <body>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script src="../scripts/editScholarship.js"></script>
-    <header>
-      <!--Univeristy Of Manitoba-->
-      <div class="container">
-        <div id="branding">
-          <h1><a href="studentHome.html">University of Manitoba</a></h1>
-        </div>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="../styles/viewScholarships.css" />
+</head>
 
-        <!--Navigation Bar-->
-        <nav>
-          <ul class="nav">
-            <li><a href="studentHome.html">Home</a></li>
-            <li><a href="viewScholarships.html">View Scholarships</a></li>
-            <li><a href="applyScholarships.html">Apply for Scholarship</a></li>
-            <li><a href="myScholarships.html">My Scholarships</a></li>
-            <li><a href="../login.html">Logout</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <div class="container" id="title">
-      <h1>Scholarships</h1>
-    </div>
-
+<body>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="../scripts/editScholarship.js"></script>
+  <header>
+    <!--Univeristy Of Manitoba-->
     <div class="container">
-      <table id="sTable">
-        <tr>
-          <th>Name</th>
-          <th>Department</th>
-          <th>Value</th>
-          <th>Deadline</th>
-          <th>Level of Study</th>
-          <th>Year Entering</th>
-        </tr>
-      </table>
+      <div id="branding">
+        <h1><a href="studentHome.html">University of Manitoba</a></h1>
+      </div>
 
-      <!--Script for clickable table-->
-      <script>
-        $(document).ready(function () {
-          $(document.body).on("click", "tr[data-href]", function () {
-            window.location.href = this.dataset.href;
-          });
-        });
-      </script>
+      <!--Navigation Bar-->
+      <nav>
+        <ul class="nav">
+          <li><a href="studentHome.html">Home</a></li>
+          <li><a href="viewScholarships.html">View Scholarships</a></li>
+          <li><a href="applyScholarships.html">Apply for Scholarship</a></li>
+          <li><a href="myScholarships.html">My Scholarships</a></li>
+          <li><a href="../login.html">Logout</a></li>
+        </ul>
+      </nav>
     </div>
-  </body>
-  <footer>
-    <p>
-      University of Manitoba Student Scholarship System, Copyright &copy; 2020
-    </p>
-  </footer>
+  </header>
+  <div class="container" id="title">
+    <h1>Scholarships</h1>
+  </div>
+
+  <div class="container">
+    <table id="sTable">
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Value</th>
+        <th>Deadline</th>
+        <th>Year Entering</th>
+        <th>Level of Study</th>
+      </tr>
+    </table>
+
+    <!--Script for clickable table-->
+    <script>
+      $(document).ready(function () {
+        $(document.body).on("click", "tr[data-href]", function () {
+          window.location.href = this.dataset.href;
+        });
+      });
+    </script>
+  </div>
+</body>
+<footer>
+  <p>
+    University of Manitoba Student Scholarship System, Copyright &copy; 2020
+  </p>
+</footer>
+
 </html>
