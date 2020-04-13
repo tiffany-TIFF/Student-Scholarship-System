@@ -40,6 +40,7 @@ app.get("/statistics", function (request, response) {
   });
 });
 
+
 app.get("/ScholarshipSystem", function (request, response) {
   console.log("GET request received at /ScholarshipSystem");
   let sql = `SELECT s.SchID, s.Name name --s.*
@@ -48,10 +49,13 @@ app.get("/ScholarshipSystem", function (request, response) {
   , s.AwardValue awardValue, s.Deadline deadline
   , c.Value as "StudentType"
   , b.Value as "YearEntering" 
+  , f.value as "Nomination"
   from Scholarship s
        LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
        LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
+       LEFT JOIN (select SchID, value from ScholarshipC WHERE CriteriaName = 'Nomination') f on s.SchID=f.SchID
        LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
+       
 
   db.all(sql, [], (err, rows) => {
     if (err) {
