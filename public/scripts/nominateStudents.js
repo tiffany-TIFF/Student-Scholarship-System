@@ -13,6 +13,7 @@ function getScholarships() {
     });
 }
 
+//show scholarships available for nominations in dropdown
 function showNominations(scholarships){
     var select = document.getElementById("scholarships");
 
