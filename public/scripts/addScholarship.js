@@ -1,171 +1,39 @@
+getDepartments();
+getID();
+// request scholarships from server
+function getDepartments() {
+  $.get("/departments", function (data) {
+    if (!data) {
+      console.log("No data received");
+    }
+    console.log("Received data:");
+    for (var i = 0; i < data.length; i++) {
+      //console.log(data[i].DepartmentCode);
+    }
+    deptArray(data);
+  });
+}
+function getID() {
+  $.get("/scholarshipid", function (data) {
+    if (!data) {
+      console.log("No data received");
+    }
+    console.log("Received data:");
+    for (var i = 0; i < data.length; i++) {
+      //console.log(data[i].SchID);
+    }
+    console.log(data[data.length-1].SchID+1);
+    document.getElementById("id").value = data[data.length-1].SchID+1;
+  });
+}
+
 /*Array for Course Codes*/
-function deptArray() {
-  var select = document.getElementById("departments"),
-    dept = [
-      "ACWR",
-      "ACCT",
-      "ACSC",
-      "ENAE",
-      "AFST",
-      "ASL",
-      "ANTH",
-      "ALMC",
-      "ARKY",
-      "ARST",
-      "ARCH",
-      "APLA",
-      "ART",
-      "ARHI",
-      "ASHA",
-      "ARTS",
-      "ASTR",
-      "ASPH",
-      "BCEM",
-      "BIOL",
-      "BMEN",
-      "BIST",
-      "BOTA",
-      "VSEN",
-      "BTMA",
-      "CNST",
-      "CMMB",
-      "CEST",
-      "ENCH",
-      "CHEM",
-      "CHIN",
-      "ENCI",
-      "CMCL",
-      "COMS",
-      "MDCH",
-      "CORE",
-      "CMDA",
-      "ENCM",
-      "CPSC",
-      "COOP",
-      "DNCE",
-      "DCED",
-      "DATA",
-      "DEST",
-      "DRAM",
-      "EASC",
-      "EALS",
-      "EAST",
-      "ECOL",
-      "ECON",
-      "EDBT",
-      "EDUC",
-      "EDPS",
-      "EDER",
-      "ENEL",
-      "ENEE",
-      "EESS",
-      "ENER",
-      "ENMG",
-      "ENGG",
-      "ENGL",
-      "ENTI",
-      "EVDA",
-      "EVDS",
-      "EVDL",
-      "EVDP",
-      "ENEN",
-      "ENSC",
-      "FILM",
-      "FNCE",
-      "FINA",
-      "FREN",
-      "GEOG",
-      "GLGY",
-      "ENGO",
-      "GOPH",
-      "GERM",
-      "GRST",
-      "GREK",
-      "HSOC",
-      "HTST",
-      "INDL",
-      "INDG",
-      "ISEC",
-      "INNO",
-      "INTR",
-      "INTE",
-      "IPHE",
-      "ITAL",
-      "JPNS",
-      "KNES",
-      "LAND",
-      "LANG",
-      "LLAC",
-      "LAST",
-      "LATI",
-      "LWSI",
-      "LAW",
-      "LING",
-      "MGST",
-      "ENMF",
-      "MRSC",
-      "MKTG",
-      "MATH",
-      "ENME",
-      "MDGE",
-      "MDPH",
-      "MDSC",
-      "MDCN",
-      "MHST",
-      "MUED",
-      "MUSI",
-      "MUPF",
-      "NANS",
-      "NEUR",
-      "NURS",
-      "OPMA",
-      "OBHR",
-      "ENPE",
-      "PHIL",
-      "PHED",
-      "PHYS",
-      "PLAN",
-      "PLBI",
-      "POLI",
-      "PLMA",
-      "PSYC",
-      "PPOL",
-      "REAL",
-      "RELS",
-      "RMIN",
-      "ROST",
-      "RUSS",
-      "SCPA",
-      "SCIE",
-      "SLAV",
-      "SOWK",
-      "SOCI",
-      "ENSF",
-      "SENG",
-      "SAST",
-      "SPPH",
-      "SPAN",
-      "STAT",
-      "STST",
-      "SGMA",
-      "SCMA",
-      "SUST",
-      "SEDV",
-      "TAP",
-      "TOUR",
-      "TRAN",
-      "UNEX",
-      "UNIV",
-      "UBST",
-      "VETM",
-      "WELL",
-      "WMST",
-      "ZOOL",
-    ];
+function deptArray(dept) {
+  var select = document.getElementById("departments");
 
   for (var i = 0; i < dept.length; i++) {
     var option = document.createElement("OPTION"),
-      txt = document.createTextNode(dept[i]);
+      txt = document.createTextNode(dept[i].DepartmentCode);
     option.appendChild(txt);
     select.insertBefore(option, select.lastChild);
   }
