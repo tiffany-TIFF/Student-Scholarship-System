@@ -42,16 +42,16 @@ function validate() {
     return false;
   } else if (userIndex > -1 && users[userIndex].pass === password) {
     alert("Login success!");
-   if (users[userIndex].coordinator == true) {
-      window.open("./coordinator/home.html");
-   }
-   if(users[userIndex].professor == true)
-   {
-     window.open("./professor/profHome.html")
-   }
-    else{
-      window.open("./student/studentHome.html");
-    }
+  
+  if (users[userIndex].coordinator == true)
+    window.open("./coordinator/home.html");
+  else if(users[userIndex].professor == true)
+    window.open("./professor/profHome.html");
+  else
+  {
+    window.open("./student/studentHome.html");
+  }
+
     return true;
   } else {
     alert("Incorrect Username or Password");
