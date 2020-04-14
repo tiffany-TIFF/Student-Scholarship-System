@@ -18,13 +18,11 @@ function showScholarships(scholarships){
     var select = document.getElementById("scholarships");
 
     for (var i = 0; i < scholarships.length; i++) {
-        var option = document.createElement("OPTION");
+      var option = document.createElement("OPTION");
         
-
       var txt = document.createTextNode(scholarships[i].name);
       option.appendChild(txt);
       select.insertBefore(option, select.lastChild);
-
     }
 
 }
