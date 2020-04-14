@@ -40,6 +40,7 @@ app.get("/statistics", function (request, response) {
   });
 });
 
+// request scholarshp data
 app.get("/ScholarshipSystem", function (request, response) {
   console.log("GET request received at /ScholarshipSystem");
   let sql = `SELECT s.SchID, s.Name name --s.*
@@ -64,16 +65,16 @@ app.get("/ScholarshipSystem", function (request, response) {
 });
 
 // client sends data to server, most commonly sent from a user submitting a form
-app.post("/ScholarshipSystem", function (request, response) {
-  console.log("POST request received at /ScholarshipDetails2");
-  db.run('INSERT INTO Scholarship VALUES (?)', [request.body.name, request.body.desc, request.body.departments,
-  request.body.awardValue, request.body.deadline, request.body.studentTypes, request.body.YearEntering], function (err) {
-    if (err) {
-      console.log("Error: " + err);
-    } else {
-      response.status(200).redirect('addScholarship.html');
-    }
-  });
+app.post("/addScholarship", function (request, response) {
+  console.log("POST request received at /addScholarship");
+  db.run('INSERT INTO Scholarship (?)',
+    [request.body.name], function (err) {
+      if (err) {
+        console.log("Error: " + err);
+      } else {
+        response.status(200).redirect('coordinator/addScholarship.html');
+      }
+    });
 });
 
 // check that server is running

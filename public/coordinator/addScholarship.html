@@ -32,7 +32,7 @@
   </div>
   <!--Criteria fields-->
   <div class="container">
-    <form class="add" action="/Scholarship" method="POST">
+    <form class="add" action="/addScholarship" method="POST">
       <label for="sName">Scholarship Name</label><br />
       <input type="text" name="name" id="sName" size="30" required /><br /><br />
 
@@ -90,7 +90,7 @@
       <input type="text" id="deadline" name="deadline" value="yyyy/mm/dd" /><br /><br />
 
       <label for="Grade">Minimum Grade</label><br />
-      <input type="text" id="Grade" name="Grade" size="4" required /><br /><br />
+      <input type="text" id="Grade" name="grade" size="4" required /><br /><br />
 
       <label for="transcriptReq">Transcript Requirement(s)</label><br />
       <select id="transcriptReq" name="transcriptReq">
@@ -106,7 +106,7 @@
       <label for="nomin">Nomination</label>
       <br /><br />
 
-      <input onclick="storeData()" type="submit" id="submit" />
+      <input type="submit" id="submit" />
     </form>
   </div>
 

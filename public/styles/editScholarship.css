@@ -10,6 +10,11 @@ body {
   color: #35639b;
 }
 
+a {
+  text-decoration: none;
+  color: #35639b;
+}
+
 a:hover {
   transform: scale(1.05);
 }

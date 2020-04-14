@@ -23,9 +23,13 @@ function showScholarships(scholarships) {
     // insert a cell in the row
     var newCell = newRow.insertCell(0);
 
+    var link = document.createElement('a');
+    var queryString = "?SchID=" + scholarships[i].SchID;
+    link.setAttribute('href', 'updateScholarship.html' + queryString);
+    link.appendChild(document.createTextNode(scholarships[i].name));
     // append a text node to the cell
-    var newText = document.createTextNode(scholarships[i].name);
-    newCell.appendChild(newText);
+    //var newText = document.createTextNode(scholarships[i].name);
+    newCell.appendChild(link);
 
     // department column
     newCell = newRow.insertCell(1);

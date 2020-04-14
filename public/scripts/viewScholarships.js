@@ -22,7 +22,6 @@ function showScholarships(scholarships) {
 
         // insert a cell in the row
         var newCell = newRow.insertCell(0);
-
         // append a text node to the cell
         var newText = document.createTextNode(scholarships[i].name);
         newCell.appendChild(newText);
