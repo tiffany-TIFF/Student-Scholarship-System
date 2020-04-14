@@ -70,6 +70,7 @@ app.get("/updateScholarship", function (request, response) {
   console.log("GET request received at /updateScholarship");
   let sql = `SELECT s.SchID, s.Name name --s.*
   , s.Description description
+  , s.NumberOfAwards numOfAwards
   , d.DepartmentCode departmentCode
   , s.AwardValue awardValue, s.Deadline deadline
   , c.Value as "StudentType"

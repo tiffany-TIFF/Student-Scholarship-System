@@ -318,4 +318,14 @@ function showData(scholarships) {
 
     //set application start date
 
+    // set Nomination
+    if (scholarships[index].Nomination == "Y") {
+        document.getElementById("nomination").checked = true;
+    }
+    console.log(scholarships.numOfAwards);
+    //document.getElementById("Grade").value = scholarships[index].MinimumGPA;
+
+    // num of awards
+    //document.getElementById("numOfAwards").value = scholarships[index].numOfAwards;
+
 }
