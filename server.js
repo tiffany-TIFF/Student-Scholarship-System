@@ -5,7 +5,7 @@ const sqlite3 = require("sqlite3").verbose();
 var bodyParser = require('body-parser');
 
 //open access to database
-let db = new sqlite3.Database("db/ScholarshipSystem.db", (err) => {
+let db = new sqlite3.Database("./ScholarshipSystem.db", (err) => {
   if (err) {
     return console.error(err.message);
   }
@@ -40,6 +40,31 @@ app.get("/statistics", function (request, response) {
   });
 });
 
+app.get("/scholarshipid", function (request, response) {
+  console.log("GET request received at /scholarshipid");
+  let sql = `SELECT SchID FROM Scholarship`;
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("got id");
+      response.send(rows);
+    }
+  });
+});
+
+app.get("/departments", function (request, response) {
+  console.log("GET request received at /departments");
+  let sql = `SELECT DepartmentCode FROM Department`;
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("got department codes");
+      response.send(rows);
+    }
+  });
+});
 
 app.get("/ScholarshipSystem", function (request, response) {
   console.log("GET request received at /ScholarshipSystem");
@@ -53,7 +78,7 @@ app.get("/ScholarshipSystem", function (request, response) {
   from Scholarship s
        LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
        LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
-       LEFT JOIN (select SchID, value from ScholarshipC WHERE CriteriaName = 'Nomination') f on s.SchID=f.SchID
+       LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName = 'Nomination') f on s.SchID=f.SchID
        LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
        
 
@@ -65,19 +90,44 @@ app.get("/ScholarshipSystem", function (request, response) {
       response.send(rows);
     }
   });
-});
-
-// client sends data to server, most commonly sent from a user submitting a form
-app.post("/ScholarshipSystem", function (request, response) {
-  console.log("POST request received at /ScholarshipDetails2");
-  db.run('INSERT INTO Scholarship VALUES (?)', [request.body.name, request.body.desc, request.body.departments,
-  request.body.awardValue, request.body.deadline, request.body.studentTypes, request.body.YearEntering], function (err) {
+  db.run('DELETE FROM ScholarshipCriteria WHERE Value is NULL', [], function (err){
     if (err) {
       console.log("Error: " + err);
     } else {
-      response.status(200).redirect('addScholarship.html');
+      console.log("cleaned up");
     }
   });
+});
+
+// client sends data to server, most commonly sent from a user submitting a form
+app.post("/AddScholarship", function (request, response) {
+  console.log("POST request received at /AddScholarship");
+  db.run('INSERT INTO Scholarship (Name, Description, AwardValue, NumberOfAwards, ApplicationStartDate, Deadline) VALUES (?, ?, ?, ?, ?, ?)', 
+  [request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline], function (err) {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("written scholarship");
+      //response.status(200).redirect('./public/coordinator/editScholarship.html');
+    }
+  });
+  db.run('INSERT INTO SCholarshipCriteria VALUES (?, "Department", ?), (?, "StudentType", ?), (?, "YearEntering", ?), (?, "MinimumGPA", ?), (?, "Nomination", ?), (?, "Transcript", ?) , (?, "NoFail", ?), (?, "NoWithdraw", ?)',
+  [ request.body.id, request.body.departments, 
+    request.body.id, request.body.studentTypes, 
+    request.body.id, request.body.yearEntering, 
+    request.body.id, request.body.Grade, 
+    request.body.id, request.body.nomin,
+    request.body.id, request.body.trans, 
+    request.body.id, request.body.noF,
+    request.body.id, request.body.noW], function (err){
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("written criteria");
+      response.status(200).redirect('./coordinator/editScholarship.html');
+    }
+  });
+  
 });
 
 // check that server is running

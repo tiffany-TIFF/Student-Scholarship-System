@@ -27,40 +27,42 @@
       </nav>
     </div>
   </header>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script type="text/javascript" src="../scripts/addScholarship.js"></script>
   <div class="container" id="title">
     <h1>Add Scholarships</h1>
   </div>
   <!--Criteria fields-->
+  
+
   <div class="container">
-    <form class="add" action="/Scholarship" method="POST">
+    <form class="add" action="/AddScholarship" method="POST">
+      <input type = hidden id="id" name="id"></input>
       <label for="sName">Scholarship Name</label><br />
       <input type="text" name="name" id="sName" size="30" required /><br /><br />
 
       <label for="departments">Department</label><br />
       <select id="departments" name="departments"> </select><br /><br />
-
-      <script type="text/javascript" src="../scripts/addScholarship.js"></script>
+      
       <script>
         deptArray();
       </script>
 
       <label for="studentTypes">Student Type</label><br />
       <select id="studentTypes" name="studentTypes">
-        <option value="undergraduate">Undergraduate</option>
-        <option value="graduate">Graduate</option>
-        <option value="phd">PhD</option>
+        <option value="Undergraduate">Undergraduate</option>
+        <option value="Graduate">Graduate</option>
+        <option value="PhD">PhD</option>
       </select><br /><br />
 
       <label for="yearEntering">Year Requirement (entering or current)</label><br />
-      <input type="checkbox" value="1" />
-      <label for="1">1st Year</label><br />
-      <input type="checkbox" value="2" />
-      <label for="2">2nd Year</label><br />
-      <input type="checkbox" value="3" />
-      <label for="3">3rd Year</label><br />
-      <input type="checkbox" value="4" />
-      <label for="4">4th Year</label>
-      <br /><br />
+      <select id="yearEntering" name="yearEntering">
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+        <option value="Any">Any</option>
+      </select><br /><br />
 
       <label for="desc">Description</label><br />
       <textarea name="desc" required></textarea><br /><br />
@@ -71,7 +73,6 @@
       <label for="numOfAwards">Number of Awards</label><br />
       <input type="number" id="numOfAwards" name="numOfAwards" min="0" required /><br /><br />
 
-      <script type="text/javascript" src="./scripts/addScholarship.js"></script>
       <label for="Term">Scholarship Type</label><br />
       <input type="radio" name="sType" onclick="dateOfScholarship(1)" />
       <label for="year">Yearly Scholarship</label><br />
@@ -93,20 +94,19 @@
       <input type="text" id="Grade" name="Grade" size="4" required /><br /><br />
 
       <label for="transcriptReq">Transcript Requirement(s)</label><br />
-      <select id="transcriptReq" name="transcriptReq">
-        <option value="noW">no W</option>
-        <option value="noF">no F</option>
-        <option value="noW&F">no W & no F</option>
-      </select><br /><br />
+      <input type="checkbox" name = "noW" value="Y" />
+      <label for="noW">No W</label><br />
+      <input type="checkbox" name = "noF" value="Y" />
+      <label for="noF">No F</label><br /><br />
 
       <label for="need">Document(s) Required</label><br />
-      <input type="checkbox" value="trans" />
+      <input type="checkbox" name = "trans" value="Y" />
       <label for="trans">Transcript</label><br />
-      <input type="checkbox" value="nomin" />
+      <input type="checkbox" name = "nomin" value="Y" />
       <label for="nomin">Nomination</label>
       <br /><br />
 
-      <input onclick="storeData()" type="submit" id="submit" />
+      <input type="submit" id="submit" />
     </form>
   </div>
 
