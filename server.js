@@ -56,7 +56,30 @@ app.get("/ScholarshipSystem", function (request, response) {
        LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='Nomination') f on s.SchID=f.SchID
        LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
 
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("get");
+      response.send(rows);
+    }
+  });
+});
 
+app.get("/updateScholarship", function (request, response) {
+  console.log("GET request received at /updateScholarship");
+  let sql = `SELECT s.SchID, s.Name name --s.*
+  , s.Description description
+  , d.DepartmentCode departmentCode
+  , s.AwardValue awardValue, s.Deadline deadline
+  , c.Value as "StudentType"
+  , b.Value as "YearEntering" 
+  , f.Value as "Nomination"
+  from Scholarship s
+       LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
+       LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
+       LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='Nomination') f on s.SchID=f.SchID
+       LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
   db.all(sql, [], (err, rows) => {
     if (err) {
       console.log("Error: " + err);

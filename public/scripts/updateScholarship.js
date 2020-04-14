@@ -272,8 +272,50 @@ function dateOfScholarship(typeOfScholarship) {
 }
 
 const urlParams = new URLSearchParams(window.location.search);
-const myParam = urlParams.get('SchID');
+const SchID = urlParams.get('SchID');
+var index = SchID - 1;
 
-function currentData() {
+// request scholarships from server
+window.onload = function getScholarships() {
+    $.get("/updateScholarship", function (data) {
+        if (!data) {
+            console.log("No data received");
+        }
+        console.log("Received data:");
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i].name);
+        }
+        showData(data);
+    });
+}
+
+// Show current data
+function showData(scholarships) {
+    console.log(scholarships);
+    console.log(scholarships[index].StudentType);
+    console.log(scholarships[index].description);
+    //set name
+    document.getElementById("sName").value = scholarships[index].name;
+    //set department
+    document.getElementById("departments").value = scholarships[index].departmentCode;
+    //set student type
+    document.getElementById("studentTypes").value = scholarships[index].StudentType;
+    // set year entered
+    if (scholarships[index].YearEntering == 1) {
+        document.getElementById("1st").checked = true;
+    } else if (scholarships[index].YearEntering == 2) {
+        document.getElementById("2nd").checked = true;
+    } else if (scholarships[index].YearEntering == 3) {
+        document.getElementById("3rd").checked = true;
+    } else if (scholarships[index].YearEntering == 4) {
+        document.getElementById("4th").checked = true;
+    }
+    // set description
+    document.getElementById("desc").value = scholarships[index].description;
+
+    // set award value
+    document.getElementById("awardValue").value = scholarships[index].awardValue;
+
+    //set application start date
 
 }
