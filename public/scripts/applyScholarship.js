@@ -18,7 +18,7 @@ function showScholarships(scholarships){
     var select = document.getElementById("scholarships");
 
     for (var i = 0; i < scholarships.length; i++) {
-        var option = document.createElement("OPTION"),
+        var option = document.createElement("OPTION");
         //nom = document.createTextNode(scholarships[i].Nomination),
         //yes = document.createTextNode("Y");
     
