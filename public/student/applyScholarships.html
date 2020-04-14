@@ -4,12 +4,11 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="stylesheet" type="text/css" href="../styles/viewScholarships.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/applyScholarship.css" />
 </head>
 
 <body>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-  <script src="../scripts/editScholarship.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <header>
     <!--Univeristy Of Manitoba-->
     <div class="container">
@@ -30,29 +29,25 @@
     </div>
   </header>
   <div class="container" id="title">
-    <h1>Scholarships</h1>
+    <h1>Apply for Scholarship</h1>
   </div>
 
   <div class="container">
-    <table id="sTable">
-      <tr>
-        <th>Name</th>
-        <th>Department</th>
-        <th>Value</th>
-        <th>Deadline</th>
-        <th>Year Entering</th>
-        <th>Level of Study</th>
-      </tr>
-    </table>
+    <form class="apply">
+      <label for="choose">Choose a Scholarship</label><br>
+      <select id="scholarships" name="scholarships">
+        <option>Test Scholarship</option>
+      </select><br><br>
 
-    <!--Script for clickable table-->
-    <script>
-      $(document).ready(function () {
-        $(document.body).on("click", "tr[data-href]", function () {
-          window.location.href = this.dataset.href;
-        });
-      });
-    </script>
+      <label for="uploadTranscript">Upload Transcript (if required)</label><br>
+      <input type="file" id="myfile" name="myfile"><br><br>
+
+      <label for="uploadNomination">Upload Nomination Letter (if required)</label><br>
+      <input type="file" id="myfile" name="myfile"><br><br>
+
+      <input type="submit" id="apply" value="Apply">
+
+    </form>
   </div>
 </body>
 <footer>
