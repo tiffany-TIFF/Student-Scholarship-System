@@ -1,3 +1,7 @@
+const urlParams = new URLSearchParams(window.location.search);
+const SchID = urlParams.get('SchID');
+var index = SchID - 1;
+
 /*Array for Course Codes*/
 function deptArray() {
     var select = document.getElementById("departments"),
@@ -271,29 +275,23 @@ function dateOfScholarship(typeOfScholarship) {
     }
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const SchID = urlParams.get('SchID');
-var index = SchID - 1;
-
 // request scholarships from server
 window.onload = function getScholarships() {
     $.get("/updateScholarship", function (data) {
         if (!data) {
             console.log("No data received");
         }
-        console.log("Received data:");
+        //console.log("Received data:");
         for (var i = 0; i < data.length; i++) {
-            console.log(data[i].name);
+            //console.log(data[i].name);
         }
+
         showData(data);
     });
 }
-
 // Show current data
 function showData(scholarships) {
-    console.log(scholarships);
-    console.log(scholarships[index].StudentType);
-    console.log(scholarships[index].description);
+    //console.log(scholarships);
     //set name
     document.getElementById("sName").value = scholarships[index].name;
     //set department
@@ -317,15 +315,34 @@ function showData(scholarships) {
     document.getElementById("awardValue").value = scholarships[index].awardValue;
 
     //set application start date
+    document.getElementById("startDate").value = scholarships[index].startDate;
+
+    // deadline
+    document.getElementById("deadline").value = scholarships[index].deadline;
+
+    // minimumm gpa
+    document.getElementById("Grade").value = scholarships[index].MinimumGPA;
+
+    // num of awards
+    document.getElementById("numOfAwards").value = scholarships[index].numOfAwards;
 
     // set Nomination
     if (scholarships[index].Nomination == "Y") {
-        document.getElementById("nomination").checked = true;
+        document.getElementById("nomin").checked = true;
     }
-    console.log(scholarships.numOfAwards);
-    //document.getElementById("Grade").value = scholarships[index].MinimumGPA;
 
-    // num of awards
-    //document.getElementById("numOfAwards").value = scholarships[index].numOfAwards;
+    // set transcript requirements
+    if (scholarships[index].NoFail == "Y") {
+        document.getElementById("noF").checked = true;
+    }
 
+    // set transcript requirements
+    if (scholarships[index].NoWithdraw == "Y") {
+        document.getElementById("noW").checked = true;
+    }
+
+    // set transcript 
+    if (scholarships[index].Transcript == "Y") {
+        document.getElementById("trans").checked = true;
+    }
 }

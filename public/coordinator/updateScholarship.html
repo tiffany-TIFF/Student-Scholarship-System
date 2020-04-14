@@ -92,19 +92,18 @@
       <input type="text" id="deadline" name="deadline" value="yyyy/mm/dd" /><br /><br />
 
       <label for="Grade">Minimum Grade</label><br />
-      <input type="text" id="Grade" name="Grade" size="4" required /><br /><br />
+      <input type="text" id="Grade" name="grade" size="4" required /><br /><br />
 
       <label for="transcriptReq">Transcript Requirement(s)</label><br />
-      <select id="transcriptReq" name="transcriptReq">
-        <option value="noW">no W</option>
-        <option value="noF">no F</option>
-        <option value="noW&F">no W & no F</option>
-      </select><br /><br />
+      <input type="checkbox" id="noW" name="noW" value="Y" />
+      <label for="noW">No W</label><br />
+      <input type="checkbox" id="noF" name="noF" value="Y" />
+      <label for="noF">No F</label><br /><br />
 
       <label for="need">Document(s) Required</label><br />
-      <input type="checkbox" value="trans" />
+      <input type="checkbox" id="trans" name="trans" value="Y" />
       <label for="trans">Transcript</label><br />
-      <input type="checkbox" id="nomination" value="nomin" />
+      <input type="checkbox" id="nomin" name="nomin" value="Y" />
       <label for="nomin">Nomination</label>
       <br /><br />
 
