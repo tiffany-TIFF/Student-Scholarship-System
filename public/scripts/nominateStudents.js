@@ -18,10 +18,16 @@ function showNominations(scholarships){
     var select = document.getElementById("scholarships");
 
     for (var i = 0; i < scholarships.length; i++) {
-        var option = document.createElement("OPTION")
-
+        var option = document.createElement("OPTION"),
+        nom = document.createTextNode(scholarships[i].Nomination),
+        yes = document.createTextNode("Y");
+    
+    //only display scholarships that need nominations
+    if(nom.isEqualNode(yes))
+    {
         var txt = document.createTextNode(scholarships[i].name);
         option.appendChild(txt);
         select.insertBefore(option, select.lastChild);
     }
+}
 }
