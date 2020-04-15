@@ -75,9 +75,18 @@ html {
   }
 
   p {
-    line-height: 5px;   /* within paragraph */
-    margin-bottom: 5px; /* between paragraphs */
+    line-height: 25px;   /* within paragraph */
+    margin-bottom: 0px; /* between paragraphs */
     }
+
+    /*text area for description*/
+textarea {
+    width: 500px;
+    height: 100px;
+    font-size: 12px;
+    color: black;
+    resize: none;
+  }
   
   footer {
     padding: 20px;

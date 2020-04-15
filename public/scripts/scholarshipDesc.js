@@ -34,7 +34,11 @@ function showData(scholarships) {
     
     // set year entered
     newText = document.createTextNode(scholarships[index].YearEntering);
-    document.getElementById("yearEntering").innerHTML = newText.textContent;
+
+    if (scholarships[index].YearEntering !== null)
+        document.getElementById("yearEntering").innerHTML = newText.textContent;
+    else
+        document.getElementById("yearEntering").innerHTML = "Any year";
 
     // set description
     newText = document.createTextNode(scholarships[index].description);
@@ -44,34 +48,43 @@ function showData(scholarships) {
     newText = document.createTextNode(scholarships[index].awardValue);
     document.getElementById("awardValue").innerHTML = "$" + newText.textContent;
 
-    /*
+    
     //set application start date
-    document.getElementById("startDate").value = scholarships[index].startDate;
+    newText = document.createTextNode(scholarships[index].startDate);
+    document.getElementById("startDate").innerHTML = newText.textContent;
 
     // deadline
-    document.getElementById("deadline").value = scholarships[index].deadline;
+    newText = document.createTextNode(scholarships[index].deadline);
+    document.getElementById("deadline").innerHTML = newText.textContent;
 
+ 
     // minimumm gpa
-    document.getElementById("Grade").value = scholarships[index].MinimumGPA;
+    newText = document.createTextNode(scholarships[index].MinimumGPA);
+    document.getElementById("Grade").innerHTML = newText.textContent;
 
+    // set transcript requirements
+    var NoF = document.createTextNode(scholarships[index].NoFail);
+    var NoW = document.createTextNode(scholarships[index].NoWithdraw);
+    var yes = document.createTextNode("Y");
+    if (NoF.isEqualNode(yes)) {
+        document.getElementById("NoF").innerHTML = "No Fails";
+    }
+
+    // set transcript requirements
+    if (NoW.isEqualNode(yes)) {
+        document.getElementById("NoW").innerHTML = "No Withdraws";
+    }
+    
+    var nomin = document.createTextNode(scholarships[index].Nomination);
+    var trans = document.createTextNode(scholarships[index].Transcript);
     // set Nomination
-    if (scholarships[index].Nomination == "Y") {
-        document.getElementById("nomin").checked = true;
-    }
-
-    // set transcript requirements
-    if (scholarships[index].NoFail == "Y") {
-        document.getElementById("noF").checked = true;
-    }
-
-    // set transcript requirements
-    if (scholarships[index].NoWithdraw == "Y") {
-        document.getElementById("noW").checked = true;
+    if (nomin.isEqualNode(yes)) {
+        ddocument.getElementById("nomin").innerHTML = "Nomination Required";
     }
 
     // set transcript 
-    if (scholarships[index].Transcript == "Y") {
-        document.getElementById("trans").checked = true;
+    if (trans.isEqualNode(yes)) {
+        document.getElementById("trans").innerHTML = "Transcript Required";
     }
-    */
+
 }
