@@ -79,7 +79,7 @@ function showData(scholarships) {
     var trans = document.createTextNode(scholarships[index].Transcript);
     // set Nomination
     if (nomin.isEqualNode(yes)) {
-        ddocument.getElementById("nomin").innerHTML = "Nomination Required";
+        document.getElementById("nomin").innerHTML = "Nomination Required";
     }
 
     // set transcript 
