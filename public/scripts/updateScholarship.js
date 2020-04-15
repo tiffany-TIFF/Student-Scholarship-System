@@ -301,13 +301,17 @@ function showData(scholarships) {
     document.getElementById("studentTypes").value = scholarships[index].StudentType;
     // set year entered
     if (scholarships[index].YearEntering == 1) {
-        document.getElementById("1st").checked = true;
+        document.getElementById("yearEntering").value = "1";
     } else if (scholarships[index].YearEntering == 2) {
-        document.getElementById("2nd").checked = true;
+        document.getElementById("yearEntering").value = "2";
     } else if (scholarships[index].YearEntering == 3) {
-        document.getElementById("3rd").checked = true;
+        document.getElementById("yearEntering").value = "3";
     } else if (scholarships[index].YearEntering == 4) {
-        document.getElementById("4th").checked = true;
+        document.getElementById("yearEntering").value = "4";
+    } else if (scholarships[index].YearEntering == "Any") {
+        document.getElementById("yearEntering").value = "Any";
+    }else{//default value
+        document.getElementById("yearEntering").value = "Any";
     }
     // set description
     document.getElementById("desc").value = scholarships[index].description;

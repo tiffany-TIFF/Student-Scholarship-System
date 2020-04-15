@@ -127,8 +127,8 @@ from Scholarship s
 // client sends data to server, most commonly sent from a user submitting a form
 app.post("/AddScholarship", function (request, response) {
   console.log("POST request received at /AddScholarship");
-  db.run('INSERT INTO Scholarship (Name, Description, AwardValue, NumberOfAwards, ApplicationStartDate, Deadline) VALUES (?, ?, ?, ?, ?, ?)',
-    [request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline], function (err) {
+  db.run('INSERT INTO Scholarship (SChID, Name, Description, AwardValue, NumberOfAwards, ApplicationStartDate, Deadline) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [request.body.id, request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline], function (err) {
       if (err) {
         console.log("Error: " + err);
       } else {
@@ -157,14 +157,38 @@ app.post("/AddScholarship", function (request, response) {
 
 app.post("/updateScholarship", function (request, response) {
   console.log("POST request received at /updateScholarship");
-  const SchID = urlParams.get('SchID');
+  //const SchID = urlParams.get('SchID');
   db.run('UPDATE Scholarship SET Name = ?, Description = ?, AwardValue = ?, NumberOfAwards = ?, ApplicationStartDate = ?, Deadline = ? WHERE SchID = ?',
     [request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline, request.body.id], function (err) {
       if (err) {
         console.log("Error: " + err);
       } else {
-        console.log("written scholarship");
+        console.log("updated scholarship");
         //response.status(200).redirect('./public/coordinator/editScholarship.html');
+      }
+    });
+    db.run('DELETE FROM SCholarshipCriteria WHERE SchID = ?', [request.body.id], function (err) {
+      if (err) {
+        console.log("Error: " + err);
+      } else {
+        //console.log("updated scholarship");
+        //response.status(200).redirect('./public/coordinator/editScholarship.html');
+      }
+    });
+    db.run('INSERT INTO SCholarshipCriteria VALUES (?, "Department", ?), (?, "StudentType", ?), (?, "YearEntering", ?), (?, "MinimumGPA", ?), (?, "Nomination", ?), (?, "Transcript", ?) , (?, "NoFail", ?), (?, "NoWithdraw", ?)',
+    [request.body.id, request.body.departments,
+    request.body.id, request.body.studentTypes,
+    request.body.id, request.body.yearEntering,
+    request.body.id, request.body.grade,
+    request.body.id, request.body.nomin,
+    request.body.id, request.body.trans,
+    request.body.id, request.body.noF,
+    request.body.id, request.body.noW], function (err) {
+      if (err) {
+        console.log("Error: " + err);
+      } else {
+        console.log("written criteria");
+        response.status(200).redirect('./coordinator/editScholarship.html');
       }
     });
 });

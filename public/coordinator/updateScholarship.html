@@ -42,7 +42,7 @@
       <label for="departments">Department</label><br />
       <select id="departments" name="departments"> </select><br /><br />
 
-      <script type="text/javascript" src="./scripts/updateScholarship.js"></script>
+      <script type="text/javascript" src="../scripts/updateScholarship.js"></script>
       <script>
         deptArray();
       </script>
@@ -55,15 +55,13 @@
       </select><br /><br />
 
       <label for="yearEntering">Year Requirement (entering or current)</label><br />
-      <input type="checkbox" id="1st" value="1" />
-      <label for="1">1st Year</label><br />
-      <input type="checkbox" id="2nd" value="2" />
-      <label for="2">2nd Year</label><br />
-      <input type="checkbox" id="3rd" value="3" />
-      <label for="3">3rd Year</label><br />
-      <input type="checkbox" id="4th" value="4" />
-      <label for="4">4th Year</label>
-      <br /><br />
+      <select id="yearEntering" name="yearEntering">
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+        <option value="Any">Any</option>
+      </select><br /><br />
 
       <label for="desc">Description</label><br />
       <textarea id="desc" name="desc" required></textarea><br /><br />
@@ -74,7 +72,7 @@
       <label for="numOfAwards">Number of Awards</label><br />
       <input type="number" id="numOfAwards" name="numOfAwards" min="0" required /><br /><br />
 
-      <script type="text/javascript" src="./scripts/updateScholarship.js"></script>
+     
       <label for="Term">Scholarship Type</label><br />
       <input type="radio" name="sType" onclick="dateOfScholarship(1)" />
       <label for="year">Yearly Scholarship</label><br />
