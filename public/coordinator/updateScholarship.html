@@ -34,14 +34,15 @@
   </div>
   <!--Criteria fields-->
   <div class="container">
-    <form class="add">
+    <form class="add" action="/updateScholarship" method="POST">
+      <input type=hidden id="id" name="id"></input>
       <label for="sName">Scholarship Name</label><br />
-      <input type="text" id="sName" size="30" required /><br /><br />
+      <input type="text" name="name" id="sName" size="30" required /><br /><br />
 
       <label for="departments">Department</label><br />
       <select id="departments" name="departments"> </select><br /><br />
 
-      <script type="text/javascript" src="./scripts/addScholarship.js"></script>
+      <script type="text/javascript" src="./scripts/updateScholarship.js"></script>
       <script>
         deptArray();
       </script>
@@ -73,7 +74,7 @@
       <label for="numOfAwards">Number of Awards</label><br />
       <input type="number" id="numOfAwards" name="numOfAwards" min="0" required /><br /><br />
 
-      <script type="text/javascript" src="./scripts/addScholarship.js"></script>
+      <script type="text/javascript" src="./scripts/updateScholarship.js"></script>
       <label for="Term">Scholarship Type</label><br />
       <input type="radio" name="sType" onclick="dateOfScholarship(1)" />
       <label for="year">Yearly Scholarship</label><br />

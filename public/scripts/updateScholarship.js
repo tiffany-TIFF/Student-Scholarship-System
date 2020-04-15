@@ -287,6 +287,7 @@ window.onload = function getScholarships() {
         }
 
         showData(data);
+        document.getElementById("id").value = SchID;
     });
 }
 // Show current data
@@ -346,3 +347,4 @@ function showData(scholarships) {
         document.getElementById("trans").checked = true;
     }
 }
+

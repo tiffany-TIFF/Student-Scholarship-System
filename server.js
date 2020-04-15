@@ -161,6 +161,20 @@ app.post("/AddScholarship", function (request, response) {
 
 });
 
+app.post("/updateScholarship", function (request, response) {
+  console.log("POST request received at /updateScholarship");
+  const SchID = urlParams.get('SchID');
+  db.run('UPDATE Scholarship SET Name = ?, Description = ?, AwardValue = ?, NumberOfAwards = ?, ApplicationStartDate = ?, Deadline = ? WHERE SchID = ?',
+    [request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline, request.body.id], function (err) {
+      if (err) {
+        console.log("Error: " + err);
+      } else {
+        console.log("written scholarship");
+        //response.status(200).redirect('./public/coordinator/editScholarship.html');
+      }
+    });
+});
+
 // check that server is running
 app.listen(3000, function () {
   console.log("Server is running on port 3000");
