@@ -40,7 +40,6 @@ app.get("/statistics", function (request, response) {
   });
 });
 
-// get scholarship id data
 app.get("/scholarshipid", function (request, response) {
   console.log("GET request received at /scholarshipid");
   let sql = `SELECT SchID FROM Scholarship`;
@@ -54,7 +53,6 @@ app.get("/scholarshipid", function (request, response) {
   });
 });
 
-// get department data
 app.get("/departments", function (request, response) {
   console.log("GET request received at /departments");
   let sql = `SELECT DepartmentCode FROM Department`;
@@ -68,7 +66,6 @@ app.get("/departments", function (request, response) {
   });
 });
 
-// get scholarship data
 app.get("/ScholarshipSystem", function (request, response) {
   console.log("GET request received at /ScholarshipSystem");
   let sql = `SELECT s.SchID, s.Name name --s.*
@@ -77,13 +74,12 @@ app.get("/ScholarshipSystem", function (request, response) {
   , s.AwardValue awardValue, s.Deadline deadline
   , c.Value as "StudentType"
   , b.Value as "YearEntering" 
-  , f.value as "Nomination"
+  , f.Value as "Nomination"
   from Scholarship s
        LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
        LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
        LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName = 'Nomination') f on s.SchID=f.SchID
        LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
-
 
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -93,10 +89,9 @@ app.get("/ScholarshipSystem", function (request, response) {
       response.send(rows);
     }
   });
-
+  
 });
 
-// get scholarship data
 app.get("/updateScholarship", function (request, response) {
   console.log("GET request received at /updateScholarship");
   let sql = `Select s.Name name, s.Description description, s.AwardValue awardValue, s.NumberOfAwards numOfAwards --s.*, 
@@ -157,23 +152,46 @@ app.post("/AddScholarship", function (request, response) {
         response.status(200).redirect('./coordinator/editScholarship.html');
       }
     });
+
 });
 
-// send request to update scholarship database
 app.post("/updateScholarship", function (request, response) {
   console.log("POST request received at /updateScholarship");
-  const SchID = urlParams.get('SchID');
+  //const SchID = urlParams.get('SchID');
   db.run('UPDATE Scholarship SET Name = ?, Description = ?, AwardValue = ?, NumberOfAwards = ?, ApplicationStartDate = ?, Deadline = ? WHERE SchID = ?',
     [request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline, request.body.id], function (err) {
       if (err) {
         console.log("Error: " + err);
       } else {
-        console.log("written scholarship");
+        console.log("updated scholarship");
         //response.status(200).redirect('./public/coordinator/editScholarship.html');
       }
     });
+    db.run('DELETE FROM SCholarshipCriteria WHERE SchID = ?', [request.body.id], function (err) {
+      if (err) {
+        console.log("Error: " + err);
+      } else {
+        //console.log("updated scholarship");
+        //response.status(200).redirect('./public/coordinator/editScholarship.html');
+      }
+    });
+    db.run('INSERT INTO SCholarshipCriteria VALUES (?, "Department", ?), (?, "StudentType", ?), (?, "YearEntering", ?), (?, "MinimumGPA", ?), (?, "Nomination", ?), (?, "Transcript", ?) , (?, "NoFail", ?), (?, "NoWithdraw", ?)',
+    [request.body.id, request.body.departments,
+    request.body.id, request.body.studentTypes,
+    request.body.id, request.body.yearEntering,
+    request.body.id, request.body.grade,
+    request.body.id, request.body.nomin,
+    request.body.id, request.body.trans,
+    request.body.id, request.body.noF,
+    request.body.id, request.body.noW], function (err) {
+      if (err) {
+        console.log("Error: " + err);
+      } else {
+        console.log("written criteria");
+        response.status(200).redirect('./coordinator/editScholarship.html');
+      }
+    });
 });
-
 
 // check that server is running
 app.listen(3000, function () {
