@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="../styles/scholarshipDesc.css" />
+</head>
+
+<body>
+  <header>
+    <!--Univeristy Of Manitoba-->
+    <div class="container">
+      <div id="branding">
+        <h1><a href="home.html">University of Manitoba</a></h1>
+      </div>
+
+      <!--Navigation Bar-->
+      <nav>
+        <ul class="nav">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="editScholarship.html">Edit Scholarships</a></li>
+          <li><a href="addScholarship.html">Add Scholarships</a></li>
+          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="../login.html" onclick="return confirm('Are you sure you want to logout?');">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script type="text/javascript" src="../scripts/scholarshipDesc.js"></script>
+  <div class="container" id="title">
+    <h1>View Scholarships</h1>
+  </div>
+  <!--Criteria fields-->
+
+
+  <div class="container">
+    
+      <p>Scholarship Name</p>
+      <p name="name" id="sName"></p><br />
+
+      <p for="departments">Department</p>
+      <p id="departments" name="departments"></p><br />
+
+      <p for="studentTypes">Student Type</p>
+      <p id="studentTypes" name="studentTypes"></p><br />
+
+      <p for="yearEntering">Year Requirement (entering or current)</p>
+      <p id="yearEntering" name="yearEntering"></p><br />
+
+      <p for="desc">Description</p>
+      <p name="desc" id="desc"></p><br /><br />
+
+      <p for="awardValue">Award Value</p>
+      <p id="awardValue" name="awardValue"></p><br /><br />
+      
+      <form class="view">
+      <label for="numOfAwards">Number of Awards</label><br />
+      <input type="number" id="numOfAwards" name="numOfAwards" min="0" required /><br /><br />
+
+      <label for="Term">Scholarship Type</label><br />
+      <input type="radio" name="sType" onclick="dateOfScholarship(1)" />
+      <label for="year">Yearly Scholarship</label><br />
+      <input type="radio" name="sType" onclick="dateOfScholarship(2)" />
+      <label for="fall">Fall Scholarship</label><br />
+      <input type="radio" name="sType" onclick="dateOfScholarship(3)" />
+      <label for="winter">Winter Scholarship</label><br />
+      <input type="radio" name="sType" onclick="dateOfScholarship(4)" />
+      <label for="other">Other</label>
+      <br /><br />
+
+      <label for="startDate">Application Start Date</label><br />
+      <input type="text" id="startDate" name="startDate" value="yyyy/mm/dd" /><br /><br />
+
+      <label for="deadline">Application Deadline</label><br />
+      <input type="text" id="deadline" name="deadline" value="yyyy/mm/dd" /><br /><br />
+
+      <label for="Grade">Minimum Grade</label><br />
+      <input type="text" id="Grade" name="grade" size="4" required /><br /><br />
+
+      <label for="transcriptReq">Transcript Requirement(s)</label><br />
+      <input type="checkbox" name="noW" value="Y" />
+      <label for="noW">No W</label><br />
+      <input type="checkbox" name="noF" value="Y" />
+      <label for="noF">No F</label><br /><br />
+
+      <label for="need">Document(s) Required</label><br />
+      <input type="checkbox" name="trans" value="Y" />
+      <label for="trans">Transcript</label><br />
+      <input type="checkbox" name="nomin" value="Y" />
+      <label for="nomin">Nomination</label>
+      <br /><br />
+
+      <input type="submit" id="submit" />
+    </form>
+  </div>
+
+  <footer>
+    <p>
+      University of Manitoba Student Scholarship System, Copyright &copy; 2020
+    </p>
+  </footer>
+</body>
+
+</html>
+© 2020 GitHub, Inc. Terms Privacy Security Status Help Contact GitHub Pricing
+API Training Blog About
