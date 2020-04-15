@@ -40,6 +40,7 @@ app.get("/statistics", function (request, response) {
   });
 });
 
+// get scholarship id data
 app.get("/scholarshipid", function (request, response) {
   console.log("GET request received at /scholarshipid");
   let sql = `SELECT SchID FROM Scholarship`;
@@ -53,6 +54,7 @@ app.get("/scholarshipid", function (request, response) {
   });
 });
 
+// get department data
 app.get("/departments", function (request, response) {
   console.log("GET request received at /departments");
   let sql = `SELECT DepartmentCode FROM Department`;
@@ -66,6 +68,7 @@ app.get("/departments", function (request, response) {
   });
 });
 
+// get scholarship data
 app.get("/ScholarshipSystem", function (request, response) {
   console.log("GET request received at /ScholarshipSystem");
   let sql = `SELECT s.SchID, s.Name name --s.*
@@ -74,12 +77,13 @@ app.get("/ScholarshipSystem", function (request, response) {
   , s.AwardValue awardValue, s.Deadline deadline
   , c.Value as "StudentType"
   , b.Value as "YearEntering" 
-  , f.Value as "Nomination"
+  , f.value as "Nomination"
   from Scholarship s
        LEFT JOIN ScholarshipDepartment d on s.SchID=d.SchID
        LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName='StudentType') c on s.SchID=c.SchID
        LEFT JOIN (select SchID, value from ScholarshipCriteria WHERE CriteriaName = 'Nomination') f on s.SchID=f.SchID
        LEFT JOIN ScholarshipYearEntering b on s.SchID=b.SchID`;
+
 
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -89,15 +93,10 @@ app.get("/ScholarshipSystem", function (request, response) {
       response.send(rows);
     }
   });
-  db.run('DELETE FROM ScholarshipCriteria WHERE Value is NULL', [], function (err) {
-    if (err) {
-      console.log("Error: " + err);
-    } else {
-      console.log("cleaned up");
-    }
-  });
+
 });
 
+// get scholarship data
 app.get("/updateScholarship", function (request, response) {
   console.log("GET request received at /updateScholarship");
   let sql = `Select s.Name name, s.Description description, s.AwardValue awardValue, s.NumberOfAwards numOfAwards --s.*, 
@@ -133,8 +132,8 @@ from Scholarship s
 // client sends data to server, most commonly sent from a user submitting a form
 app.post("/AddScholarship", function (request, response) {
   console.log("POST request received at /AddScholarship");
-  db.run('INSERT INTO Scholarship (Name, Description, AwardValue, NumberOfAwards, ApplicationStartDate, Deadline) VALUES (?, ?, ?, ?, ?, ?)',
-    [request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline], function (err) {
+  db.run('INSERT INTO Scholarship (SchID, Name, Description, AwardValue, NumberOfAwards, ApplicationStartDate, Deadline) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [request.body.id, request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline], function (err) {
       if (err) {
         console.log("Error: " + err);
       } else {
@@ -158,9 +157,9 @@ app.post("/AddScholarship", function (request, response) {
         response.status(200).redirect('./coordinator/editScholarship.html');
       }
     });
-
 });
 
+// send request to update scholarship database
 app.post("/updateScholarship", function (request, response) {
   console.log("POST request received at /updateScholarship");
   const SchID = urlParams.get('SchID');
@@ -174,6 +173,7 @@ app.post("/updateScholarship", function (request, response) {
       }
     });
 });
+
 
 // check that server is running
 app.listen(3000, function () {
