@@ -1,6 +1,6 @@
 # Student-Scholarship-System
 
-This is a project for SENG 300 Winter 2020 at the University of Calgary. It is a student scholarship website for the University of Manitoba that allows students to view and apply for scholarships, professors to nominate their students for scholarships and scholarship coordinators can create scholarships, edit scholarships and view statistics about the scholarships.
+This is a project for SENG 300 Winter 2020 at the University of Calgary. It is a student scholarship website for the University of Manitoba where students can view and apply for scholarships, professors can nominate their students for scholarships and scholarship coordinators can create scholarships, edit scholarships and view statistics about their scholarships.
 
 Getting Started
 1. Install Node.js.
