@@ -9,13 +9,13 @@ Getting Started
 4. Type in this to run the server ```node server ```
 5. On your preferred browser go to http://localhost:3000/login.html.
 
-The usernames and passwords for the users:
-Co-ordinator
-username: Admin
-password: AdminPass
-Professor
-username: profUser
-password: profPass
-Student
-username: TestUser
-password: TestPass
+The usernames and passwords for the users 
+1. Co-ordinator  
+username: Admin  
+password: AdminPass 
+2. Professor  
+username: profUser  
+password: profPass  
+3. Student  
+username: TestUser  
+password: TestPass  
