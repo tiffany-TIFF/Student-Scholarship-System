@@ -33,10 +33,14 @@ function showData(scholarships) {
     document.getElementById("studentTypes").innerHTML = newText.textContent;
     
     // set year entered
-    newText = document.createTextNode(scholarships[index].YearEntering);
-
-    if (scholarships[index].YearEntering !== null)
-        document.getElementById("yearEntering").innerHTML = newText.textContent;
+    if (scholarships[index].YearEntering == 1)
+        document.getElementById("yearEntering").innerHTML = "1st Year";
+    else if (scholarships[index].YearEntering == 2)
+        document.getElementById("yearEntering").innerHTML = "2nd Year";
+    else if (scholarships[index].YearEntering == 3)
+        document.getElementById("yearEntering").innerHTML = "3rd Year";
+    else if (scholarships[index].YearEntering == 4)
+        document.getElementById("yearEntering").innerHTML = "4th Year";
     else
         document.getElementById("yearEntering").innerHTML = "Any year";
 
