@@ -127,7 +127,7 @@ from Scholarship s
 // client sends data to server, most commonly sent from a user submitting a form
 app.post("/AddScholarship", function (request, response) {
   console.log("POST request received at /AddScholarship");
-  db.run('INSERT INTO Scholarship (SChID, Name, Description, AwardValue, NumberOfAwards, ApplicationStartDate, Deadline) VALUES (?, ?, ?, ?, ?, ?, ?)',
+  db.run('INSERT INTO Scholarship (SchID, Name, Description, AwardValue, NumberOfAwards, ApplicationStartDate, Deadline) VALUES (?, ?, ?, ?, ?, ?, ?)',
     [request.body.id, request.body.name, request.body.desc, request.body.awardValue, request.body.numOfAwards, request.body.startDate, request.body.deadline], function (err) {
       if (err) {
         console.log("Error: " + err);
