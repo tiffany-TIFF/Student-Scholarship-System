@@ -40,6 +40,7 @@ app.get("/statistics", function (request, response) {
   });
 });
 
+// get scholarship id data
 app.get("/scholarshipid", function (request, response) {
   console.log("GET request received at /scholarshipid");
   let sql = `SELECT SchID FROM Scholarship`;
@@ -53,6 +54,7 @@ app.get("/scholarshipid", function (request, response) {
   });
 });
 
+// get department data
 app.get("/departments", function (request, response) {
   console.log("GET request received at /departments");
   let sql = `SELECT DepartmentCode FROM Department`;
@@ -66,6 +68,7 @@ app.get("/departments", function (request, response) {
   });
 });
 
+// get scholarship data
 app.get("/ScholarshipSystem", function (request, response) {
   console.log("GET request received at /ScholarshipSystem");
   let sql = `SELECT s.SchID, s.Name name --s.*
@@ -93,6 +96,7 @@ app.get("/ScholarshipSystem", function (request, response) {
 
 });
 
+// get scholarship data
 app.get("/updateScholarship", function (request, response) {
   console.log("GET request received at /updateScholarship");
   let sql = `Select s.Name name, s.Description description, s.AwardValue awardValue, s.NumberOfAwards numOfAwards --s.*, 
@@ -155,6 +159,7 @@ app.post("/AddScholarship", function (request, response) {
     });
 });
 
+// send request to update scholarship database
 app.post("/updateScholarship", function (request, response) {
   console.log("POST request received at /updateScholarship");
   const SchID = urlParams.get('SchID');
