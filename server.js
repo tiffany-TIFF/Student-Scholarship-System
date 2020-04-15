@@ -89,13 +89,7 @@ app.get("/ScholarshipSystem", function (request, response) {
       response.send(rows);
     }
   });
-  db.run('DELETE FROM ScholarshipCriteria WHERE Value is NULL', [], function (err) {
-    if (err) {
-      console.log("Error: " + err);
-    } else {
-      console.log("cleaned up");
-    }
-  });
+  
 });
 
 app.get("/updateScholarship", function (request, response) {
