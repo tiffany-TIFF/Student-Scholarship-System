@@ -13,6 +13,7 @@ function getDepartments() {
     deptArray(data);
   });
 }
+// get scholarship id from database
 function getID() {
   $.get("/scholarshipid", function (data) {
     if (!data) {
@@ -22,8 +23,8 @@ function getID() {
     for (var i = 0; i < data.length; i++) {
       //console.log(data[i].SchID);
     }
-    console.log(data[data.length-1].SchID+1);
-    document.getElementById("id").value = data[data.length-1].SchID+1;
+    console.log(data[data.length - 1].SchID + 1);
+    document.getElementById("id").value = data[data.length - 1].SchID + 1;
   });
 }
 

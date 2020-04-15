@@ -42,16 +42,15 @@ function validate() {
     return false;
   } else if (userIndex > -1 && users[userIndex].pass === password) {
     alert("Login success!");
-  
-  if (users[userIndex].coordinator == true)
-    window.open("./coordinator/home.html");
-  else if(users[userIndex].professor == true)
-    window.open("./professor/profHome.html");
-  else
-  {
-    window.open("./student/studentHome.html");
-  }
 
+    // if username and password are correct, open the homepage
+    if (users[userIndex].coordinator == true)
+      window.open("./coordinator/home.html");
+    else if (users[userIndex].professor == true)
+      window.open("./professor/profHome.html");
+    else {
+      window.open("./student/studentHome.html");
+    }
     return true;
   } else {
     alert("Incorrect Username or Password");
@@ -59,6 +58,7 @@ function validate() {
   }
 }
 
+// show password
 function myFunction() {
   let x = document.getElementById("psw");
   if (x.type === "password") {
@@ -68,6 +68,7 @@ function myFunction() {
   }
 }
 
+// display login box
 function loginBoxdisplay(v) {
   if (v == 1) {
     document.getElementById("id01").style.display = "none";
