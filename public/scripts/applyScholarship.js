@@ -15,7 +15,10 @@ function getScholarships() {
     showScholarships(data);
   });
 }
-
+var scholIndex;
+/*const urlParams = new URLSearchParams(window.location.search);
+const SchID = urlParams.get('SchID');
+var index = SchID - 1;*/
 // show scholarships available  in dropdown
 function showScholarships(scholarships){
     var select = document.getElementById("scholarships");
@@ -37,13 +40,14 @@ function showScholarships(scholarships){
       if (trans.isEqualNode(yes))
         transcriptIndex.push(i);
     }
-
+    scholIndex = document.getElementById("scholarships").selectedIndex;
     onChange();
 }
 
 function onChange(){
-  var scholIndex = document.getElementById("scholarships").selectedIndex;
-  
+  scholIndex = document.getElementById("scholarships").selectedIndex;
+  console.log(scholIndex);
+  document.getElementById("SchId").value = scholIndex+1;
   //Hide/Show nomination
   var nomDiv = document.getElementById("nomination");
   
