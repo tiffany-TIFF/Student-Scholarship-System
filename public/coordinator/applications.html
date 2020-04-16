@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="../styles/applications.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="../scripts/applications.js"></script>
+    <header>
+        <!--Univeristy Of Manitoba-->
+        <div class="container">
+            <div id="branding">
+                <h1><a href="home.html">University of Manitoba</a></h1>
+            </div>
+
+            <!--Navigation Bar-->
+            <nav>
+                <ul class="nav">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="editScholarship.html">Edit Scholarships</a></li>
+                    <li><a href="addScholarship.html">Add Scholarships</a></li>
+                    <li><a href="stats.html">Statistics</a></li>
+                    <li><a href="../login.html" onclick="return confirm('Are you sure you want to logout?');">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--Title-->
+    <div class="container" id="title">
+        <h1>Edit Scholarships</h1>
+    </div>
+
+    <div class="container">
+        <table id="sTable">
+            <thead>
+                <tr>
+                    <th>Scholarship</th>
+                    <th>Student</th>
+                    <th>Department</th>
+                    <th>Value</th>
+                    <th>Deadline</th>
+                    <th>Year Entering</th>
+                    <th>Level of Study</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</body>
+<footer>
+    <p>
+        University of Manitoba Student Scholarship System, Copyright &copy; 2020
+    </p>
+</footer>
+
+</html>
