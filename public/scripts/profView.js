@@ -20,42 +20,36 @@ function showScholarships(scholarships) {
         var nom = document.createTextNode(scholarships[i].Nomination),
             yes = document.createTextNode("Y");
 
-        if(nom.isEqualNode(yes))
-        {
-        // insert a row
-        var newRow = table.insertRow();
+        if (nom.isEqualNode(yes)) {
+            // insert a row
+            var newRow = table.insertRow();
 
-        // insert a cell in the row
-        var newCell = newRow.insertCell(0);
+            // insert a cell in the row
+            var newCell = newRow.insertCell(0);
 
-        // append a text node to the cell
-        var newText = document.createTextNode(scholarships[i].name);
-        newCell.appendChild(newText);
+            // append a text node to the cell
+            var newText = document.createTextNode(scholarships[i].name);
+            newCell.appendChild(newText);
 
-        // description column
-        newCell = newRow.insertCell(1);
-        newText = document.createTextNode(scholarships[i].description);
-        newCell.appendChild(newText);
+            // department column
+            newCell = newRow.insertCell(1);
+            newText = document.createTextNode(scholarships[i].departmentCode);
+            newCell.appendChild(newText);
 
-        // department column
-        newCell = newRow.insertCell(2);
-        newText = document.createTextNode(scholarships[i].departmentCode);
-        newCell.appendChild(newText);
+            // award column
+            newCell = newRow.insertCell(2);
+            newText = document.createTextNode("$" + scholarships[i].awardValue);
+            newCell.appendChild(newText);
 
-        // award column
-        newCell = newRow.insertCell(3);
-        newText = document.createTextNode("$" + scholarships[i].awardValue);
-        newCell.appendChild(newText);
+            // deadline column
+            newCell = newRow.insertCell(3);
+            newText = document.createTextNode(scholarships[i].deadline);
+            newCell.appendChild(newText);
 
-        // deadline column
-        newCell = newRow.insertCell(4);
-        newText = document.createTextNode(scholarships[i].deadline);
-        newCell.appendChild(newText);
-
-        // student type column
-        newCell = newRow.insertCell(5);
-        newText = document.createTextNode(scholarships[i].StudentType);
-        newCell.appendChild(newText);
+            // student type column
+            newCell = newRow.insertCell(4);
+            newText = document.createTextNode(scholarships[i].StudentType);
+            newCell.appendChild(newText);
         }
     }
 }
