@@ -37,6 +37,8 @@ function showScholarships(scholarships){
       if (trans.isEqualNode(yes))
         transcriptIndex.push(i);
     }
+
+    onChange();
 }
 
 function onChange(){
