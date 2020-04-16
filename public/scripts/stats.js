@@ -17,10 +17,10 @@ function getStatistics() {
 function showStatistics(statistics) {
     var tableRef = document.getElementById("sTable2019");
     var tableRef2 = document.getElementById("sTable2018");
-    var rows = statistics.length / 2;
+    var rows = statistics.length;
 
     // display 2019 statistics
-    for (var i = 0; i < rows; i++) {
+    for (var i = 0; i < rows; i += 2) {
         // insert a row
         var newRow = tableRef.insertRow();
 
@@ -48,7 +48,7 @@ function showStatistics(statistics) {
     }
 
     // display 2018 statistics
-    for (var j = 0; j < rows; j++) {
+    for (var j = 1; j < rows; j += 2) {
         // insert a row
         var newRow = tableRef2.insertRow();
 
@@ -60,17 +60,17 @@ function showStatistics(statistics) {
 
         // number of applications column
         newCell = newRow.insertCell(1);
-        newText = document.createTextNode(statistics[rows + j].numOfApplications);
+        newText = document.createTextNode(statistics[j].numOfApplications);
         newCell.appendChild(newText);
 
         // number of recipients column
         newCell = newRow.insertCell(2);
-        newText = document.createTextNode(statistics[rows + j].numOfRecipients);
+        newText = document.createTextNode(statistics[j].numOfRecipients);
         newCell.appendChild(newText);
 
         // acceptance ratio column
         newCell = newRow.insertCell(3);
-        newText = document.createTextNode(statistics[rows + j].acceptanceRatio);
+        newText = document.createTextNode(statistics[j].acceptanceRatio);
         newCell.appendChild(newText);
 
     }
