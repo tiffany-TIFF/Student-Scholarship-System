@@ -39,6 +39,28 @@ app.get("/statistics", function (request, response) {
     }
   });
 });
+//get applications
+app.get("/applications", function (request, response) {
+  console.log("GET request received at /applications");
+  let sql = `SELECT t.SchID SchID,
+              t.StudentID studentID,
+              t.Status status,
+              s.AwardValue awardValue,
+              s.Name name,
+              s.Deadline deadline,
+              r.Name studentName
+              FROM Application t
+              LEFT JOIN Scholarship s on t.SchID=s.SchID
+              LEFT JOIN Student r on t.StudentID=r.StudentID`;
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("got id");
+      response.send(rows);
+    }
+  });
+});
 
 app.get("/scholarshipid", function (request, response) {
   console.log("GET request received at /scholarshipid");
@@ -89,7 +111,7 @@ app.get("/ScholarshipSystem", function (request, response) {
       response.send(rows);
     }
   });
-  
+
 });
 
 app.get("/updateScholarship", function (request, response) {
@@ -167,15 +189,15 @@ app.post("/updateScholarship", function (request, response) {
         //response.status(200).redirect('./public/coordinator/editScholarship.html');
       }
     });
-    db.run('DELETE FROM SCholarshipCriteria WHERE SchID = ?', [request.body.id], function (err) {
-      if (err) {
-        console.log("Error: " + err);
-      } else {
-        //console.log("updated scholarship");
-        //response.status(200).redirect('./public/coordinator/editScholarship.html');
-      }
-    });
-    db.run('INSERT INTO SCholarshipCriteria VALUES (?, "Department", ?), (?, "StudentType", ?), (?, "YearEntering", ?), (?, "MinimumGPA", ?), (?, "Nomination", ?), (?, "Transcript", ?) , (?, "NoFail", ?), (?, "NoWithdraw", ?)',
+  db.run('DELETE FROM SCholarshipCriteria WHERE SchID = ?', [request.body.id], function (err) {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      //console.log("updated scholarship");
+      //response.status(200).redirect('./public/coordinator/editScholarship.html');
+    }
+  });
+  db.run('INSERT INTO SCholarshipCriteria VALUES (?, "Department", ?), (?, "StudentType", ?), (?, "YearEntering", ?), (?, "MinimumGPA", ?), (?, "Nomination", ?), (?, "Transcript", ?) , (?, "NoFail", ?), (?, "NoWithdraw", ?)',
     [request.body.id, request.body.departments,
     request.body.id, request.body.studentTypes,
     request.body.id, request.body.yearEntering,
@@ -191,6 +213,22 @@ app.post("/updateScholarship", function (request, response) {
         response.status(200).redirect('./coordinator/editScholarship.html');
       }
     });
+});
+
+app.get("/userLogin", function (request, response) {
+  console.log("GET request received at /login");
+  let sql = `SELECT Username username,
+            Password password,
+            UserType userType
+            FROM USER`;
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("got id");
+      response.send(rows);
+    }
+  });
 });
 
 // check that server is running
