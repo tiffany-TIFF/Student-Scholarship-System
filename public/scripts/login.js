@@ -1,5 +1,5 @@
 // Array that stores each users username, password, and if they're a scholarship coordinator
-var users = [
+/*var users = [
   {
     user: "Admin",
     pass: "AdminPass",
@@ -19,45 +19,72 @@ var users = [
     professor: true
   }
 ];
-
+*/
 function testAlert() {
   alert("Code reached");
 }
 
-// Validates if the username and password are correct
-function validate() {
-  var username = document.getElementById("name");
-  var password = document.getElementById("psw");
+var login;
+var userType;
+var username;
+var password;
+var users;
+function testAlert() {
+  alert("Code reached");
+}
 
+// request scholarships from server
+function getLogin() {
+  $.get("/userLogin", function (data) {
+    if (!data) {
+      console.log("No data received");
+    }
+    console.log("Received data:");
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i]);
+    }
+    users = data;
+  });
+}
+getLogin();
+function checkLogin(data) {
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].username == username && data[i].password == password) {
+      login = true;
+      userType = data[i].userType;
+    }
+    console.log(data[i].password+", "+password);
+  }
+  //alert(userType);
+}
+
+// Validates if the username and password are correct
+function validate() {
+  // Check if the login and password are correct
+  username = document.getElementById("name");
+  password = document.getElementById("psw");
   username = username.value;
   password = password.value;
-
-  if (users.findIndex((x) => x.user === username) > -1) {
-    var userIndex = users.findIndex((x) => x.user === username);
-  }
-
-  // Check if the login and password are correct
+  checkLogin(users);
   if (username === "" || password === "") {
-    alert("Username and Password required");
+    alert("Username and Password required");
     return false;
-  } else if (userIndex > -1 && users[userIndex].pass === password) {
-    alert("Login success!");
-
-    // if username and password are correct, open the homepage
-    if (users[userIndex].coordinator == true)
+  } else if (login === true) {
+    // if username and password are correct, open the homepage
+    console.log(userType);
+    if (userType === "coordinator")
       window.open("./coordinator/home.html");
-    else if (users[userIndex].professor == true)
+    else if (userType === "professor")
       window.open("./professor/profHome.html");
     else {
       window.open("./student/studentHome.html");
     }
     return true;
   } else {
-    alert("Incorrect Username or Password");
+    alert("Incorrect Username or Password");
     return false;
   }
 }
-
 // show password
 function myFunction() {
   let x = document.getElementById("psw");
