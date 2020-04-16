@@ -46,6 +46,11 @@ a:hover {
   transform: scale(1.05);
 }
 
+/*no text decoration*/
+a {
+  text-decoration: none;
+}
+
  /*navigation bar*/
 nav {
   text-align: center;
