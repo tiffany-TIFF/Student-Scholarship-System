@@ -215,6 +215,22 @@ app.post("/updateScholarship", function (request, response) {
     });
 });
 
+app.get("/userLogin", function (request, response) {
+  console.log("GET request received at /login");
+  let sql = `SELECT Username username,
+            Password password,
+            UserType userType
+            FROM USER`;
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log("got id");
+      response.send(rows);
+    }
+  });
+});
+
 // check that server is running
 app.listen(3000, function () {
   console.log("Server is running on port 3000");
