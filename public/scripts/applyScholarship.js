@@ -1,7 +1,10 @@
+var nominationsIndex = [];
+var transcriptIndex = [];
+
 getScholarships();
 // request scholarships from server
 function getScholarships() {
-  $.get("/ScholarshipSystem", function (data) {
+  $.get("/updateScholarship", function (data) {
     if (!data) {
       console.log("No data received");
     }
@@ -23,6 +26,40 @@ function showScholarships(scholarships){
       var txt = document.createTextNode(scholarships[i].name);
       option.appendChild(txt);
       select.insertBefore(option, select.lastChild);
+
+      var nom = document.createTextNode(scholarships[i].Nomination),
+        yes = document.createTextNode("Y");
+      
+      if (nom.isEqualNode(yes))
+        nominationsIndex.push(i);
+
+      var trans = document.createTextNode(scholarships[i].Transcript);
+      if (trans.isEqualNode(yes))
+        transcriptIndex.push(i);
     }
+}
+
+function onChange(){
+  var scholIndex = document.getElementById("scholarships").selectedIndex;
+  
+  //Hide/Show nomination
+  var nomDiv = document.getElementById("nomination");
+  
+  nomDiv.style.display = "none";
+  
+  if(nominationsIndex.includes(scholIndex))
+    nomDiv.style.display = "block";
+  else
+    nomDiv.style.display = "none";
+
+  //Hide/Show transcript
+  var transDiv = document.getElementById("transcript");
+
+  transDiv.style.display = "none";
+
+  if(transcriptIndex.includes(scholIndex))
+    transDiv.style.display = "block";
+  else
+    transDiv.style.display = "none";
 
 }
